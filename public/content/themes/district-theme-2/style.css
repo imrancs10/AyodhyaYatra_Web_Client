@@ -1,0 +1,25 @@
+/*
+Theme Name: District Theme 2
+*/
+.share-align{ font-size: 1.2em; vertical-align: middle;}
+.share-on-gallery { font-size: 1.4em; display: inline-block; vertical-align: middle; margin-bottom: 3px;}
+.scheme-content{ padding: 0 15px 15px 15px; }
+.scheme .scheme-content a:hover { color: #fff;}
+
+.thumbs_view.list-view .pressRelese p, .thumbs_view.list-view .pressRelese h3 { height: auto; overflow: visible;}
+.thumbs_view.list-view .pressRelese .pressImage{ margin-right: 15px;}
+.thumbs_view.list-view .pressRelese .btn.btn-gov{ margin-left: 0;}
+.thumbs_view.list-view .dwnload-social-cntr { margin-top: 0;}
+#photoGallery6 .photoGallery6Item .photoGallery6ItemCaption .icon-zoom-in{ right: 15px; bottom: 10px;}
+.gen-tab.tab-vertical .resp-tabs-list .resp-tab-item{ padding: 13px !important;}
+#photoGallery6 .list-view .photoGallery6Item .photoGallery6ItemCaption{ width: 70%;}
+.list-view .title-desccntr{ display: inline-block; padding-left: 20px; width: 70%;}
+.list-view .galleryCategoryCont #galleryCategory1 .title-desccntr .galleryCatBtn{ margin-left: 0; margin-bottom: 15px;}
+.photoglryMainContainer #galleryCategory1 .twoImgContainer img{ float: left;}
+.thumbs_view.list-view .title-desccntr .gallery-descriptions{ width: 100%;}
+#photoGallery6 .list-view .photoGallery6Item .fancybox{ float: left;}
+#photoGallery6 .list-view .photoGallery6Item .photoGallery6ItemCaption .photoGallery6ItemCaptionContent{ width: 100%; max-width: 100%;}
+#photoGallery6 .photoGallery6Item .photoGallery6ItemCaption .photoGallery6ItemCaptionContent .socialBox{ width: 100%;}
+.publicU-Details { background: #e1e1e1;}
+.thumbs_view.list-view .touristMainCont .tourestContent{ text-align: left;}
+.thumbs_view.list-view .pressRelese { min-height: inherit; padding-bottom: 20px;}
