@@ -2293,8 +2293,8 @@ fieldset[disabled] .btn-default.focus {
 
 .btn-primary {
   color: #ffffff;
-  background-color: #ec7f37;
-  border-color: #ec7f37;
+  background-color: #16537e;
+  border-color: #16537e;
 }
 
 .btn-primary:focus,
@@ -8399,7 +8399,8 @@ body {
 }
 
 a {
-  color: #be4f0c;
+  /* color: #be4f0c; */
+  color: #0d6efd;
 }
 
 .bgSection {
@@ -9461,7 +9462,7 @@ body,
   position: fixed;
   right: -300px;
   top: 0;
-  background: #3845a5;
+  background: #16537e;
   min-width: 300px;
   height: 100%;
   z-index: 99;
@@ -9599,7 +9600,8 @@ body,
 }
 
 .menuWrapper {
-  background: #393939;
+  /* background: #393939; */
+  background: rgba(0,66,111,1.0) url("header_bg.jpg") 50% 10%;
   color: #000000;
   border-top: 1px solid #35409a;
 }
@@ -9622,8 +9624,8 @@ body,
   transition: 0.1s linear opacity;
   width: 250px;
   z-index: 99;
-  background: #393939;
-  border: 1px solid #393939;
+  background: #16537e;
+  border: 1px solid #16537e;
 }
 
 .nav ul li:hover ul {
@@ -19088,8 +19090,8 @@ ol.list-style li {
 }
 
 .btn-black {
-  background-color: #000000;
-  border-color: #000000;
+  background-color: #16537e;
+  border-color: #16537e;
   color: #ffffff;
 }
 

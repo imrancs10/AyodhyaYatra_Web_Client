@@ -184,9 +184,9 @@ export default function Header() {
                 <div className="container header-container">
                     <div className="logo">
                         <a href="index.html" title="Go to home" className="emblem" rel="home">
-                            <LazyLoadImage effect='blur' className="site_logo" height="100" id="logo" src="uploads/logo.png" alt="Kashi Yatra Logo" />
+                            <LazyLoadImage effect='blur' className="site_logo" height="100" id="logo" src="uploads/logo.png" alt="Ayodhya Yatra Logo" />
                             <div className="logo-text hidden">
-                                <strong lang="grt" className="site_name_regional">काशी यात्रा</strong>
+                                <strong lang="grt" className="site_name_regional">अयोध्या यात्रा</strong>
                                 <h1 className="site_name_english">{t("kashiYatra")}</h1>
                             </div>
                         </a>

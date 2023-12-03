@@ -18,7 +18,7 @@ export default function Home() {
     useEffect(() => {
         Api.Get(apiUrls.newsUpdateController.getNewsUpdate)
             .then(res => {
-                setNewsUpdateData(res.data);
+                //setNewsUpdateData(res.data);
             });
     }, []);
 
