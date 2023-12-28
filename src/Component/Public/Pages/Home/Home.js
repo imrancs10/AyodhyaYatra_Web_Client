@@ -8,6 +8,7 @@ import { common } from '../../../../utils/common';
 import { useTranslation } from 'react-i18next';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Notification from './Notification';
 window.jQuery = window.$ = $;
 export default function Home() {
     const { t, i18n } = useTranslation();
@@ -232,48 +233,48 @@ export default function Home() {
 
     return (
         <main>
+            <Carousel
+                showArrows={true}
+                infiniteLoop={true}
+                showThumbs={false}
+                stopOnHover={true}
+                swipeable={true}
+                autoPlay={true}
+                interval={parseInt(process.env.REACT_APP_CAROUSEL_INTERVAL)}
+
+            // onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb}
+            >
+                <div>
+                    <LazyLoadImage effect='blur' src="uploads/01.jpg" />
+                    <p className="heading3 legend">{t("welcomToKashi")}</p>
+                </div>
+                <div>
+                    <video className="video" muted="" autoPlay="" loop="">
+                        <source src="uploads/video2.mp4" type="video/mp4" />
+                    </video>
+                    <p className="heading3 legend">{t("welcomToKashi")}</p>
+                </div>
+                <div>
+                    <LazyLoadImage effect='blur' src="uploads/03.jpg" />
+                    <p className="heading3 legend">{t("welcomToKashi")}</p>
+                </div>
+                <div>
+                    <LazyLoadImage effect='blur' src="uploads/03.jpg" />
+                    <p className="heading3 legend">{t("welcomToKashi")}</p>
+                </div>
+                <div>
+                    <LazyLoadImage effect='blur' src="uploads/02.jpg" />
+                    <p className="heading3 legend">{t("welcomToKashi")}</p>
+                </div>
+                <div>
+                    <LazyLoadImage effect='blur' src="uploads/01.jpg" />
+                    <p className="heading3 legend">{t("welcomToKashi")}</p>
+                </div>
+            </Carousel>
             <div className="wrapper bodyWrapper no_padding">
                 <div className="container home-2">
                     <div id="SkipContent" tabIndex="-1"></div>
                     <div className="row" id="row-content" style={{ margin: 0 }}>
-                        <div className='col-12'>
-                            <Carousel
-                                showArrows={true}
-                                infiniteLoop={true}
-                                showThumbs={false}
-                                stopOnHover={true}
-                                swipeable={true}
-                                autoPlay={true}
-                                interval={parseInt(process.env.REACT_APP_CAROUSEL_INTERVAL)}
-
-                            // onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb}
-                            >
-                                <div>
-                                    <LazyLoadImage effect='blur' src="uploads/03.jpg" />
-                                    <p className="heading3 legend">{t("welcomToKashi")}</p>
-                                </div>
-                                <div>
-                                    <LazyLoadImage effect='blur' src="uploads/02.jpg" />
-                                    <p className="heading3 legend">{t("welcomToKashi")}</p>
-                                </div>
-                                <div>
-                                    <LazyLoadImage effect='blur' src="uploads/01.jpg" />
-                                    <p className="heading3 legend">{t("welcomToKashi")}</p>
-                                </div>
-                                <div>
-                                    <LazyLoadImage effect='blur' src="uploads/03.jpg" />
-                                    <p className="heading3 legend">{t("welcomToKashi")}</p>
-                                </div>
-                                <div>
-                                    <LazyLoadImage effect='blur' src="uploads/02.jpg" />
-                                    <p className="heading3 legend">{t("welcomToKashi")}</p>
-                                </div>
-                                <div>
-                                    <LazyLoadImage effect='blur' src="uploads/01.jpg" />
-                                    <p className="heading3 legend">{t("welcomToKashi")}</p>
-                                </div>
-                            </Carousel>
-                        </div>
                         <div className="col-12">
                             <div id="post-3371" className="post-3371 page type-page status-publish hentry">
 
@@ -332,7 +333,7 @@ export default function Home() {
                                         </div>
                                     </div>
                                 </div>
-                                <iframe width="700" height="450" src="https://www.airpano.com/embed.php?3D=india_varanasi" frameBorder="0" marginHeight="0" marginWidth="0" scrolling="no" framespacing="0" allowFullScreen> </iframe>
+
                                 <div className="vc_row wpb_row vc_row-fluid">
                                     <div className="wpb_column vc_column_container vc_col-sm-3">
                                         <div className="vc_column-inner ">
@@ -362,7 +363,8 @@ export default function Home() {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div><div className="find-services-tab wpb_column vc_column_container vc_col-sm-6">
+                                    </div>
+                                    <div className="find-services-tab wpb_column vc_column_container vc_col-sm-6">
                                         <div className="vc_column-inner vc_custom_1516181007844">
                                             <div className="wpb_wrapper">
                                                 <h2 className="heading3" style={{ color: "black" }}>{t("find")} {t("services")}</h2>
@@ -465,164 +467,50 @@ export default function Home() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="vc_row wpb_row vc_row-fluid vc_custom_1516183865331 vc_row-o-equal-height vc_row-flex">
-                                    <div className="news-notificaton-tab wpb_column vc_column_container vc_col-sm-6 vc_col-has-fill">
-                                        <div className="vc_column-inner vc_custom_1499335980740">
-                                            <div className="wpb_wrapper">
-                                                <div className="vc_tta-container" data-vc-action="collapse">
-                                                    <div className="vc_general vc_tta vc_tta-tabs vc_tta-color-grey vc_tta-style-modern vc_tta-shape-square vc_tta-o-shape-group vc_tta-o-no-fill vc_tta-tabs-position-top vc_tta-controls-align-left">
-                                                        <div className="vc_tta-tabs-container">
-                                                            <ul className="vc_tta-tabs-list" role="tablist">
-                                                                <li className="vc_tta-tab vc_active" data-vc-tab="">
-                                                                    <a href="#news" onClick={e => horzontalToggleTabs(e, 'news', 'news-events')} data-vc-tabs="" data-vc-container=".vc_tta" role="tab" aria-controls="news" aria-selected="true">
-                                                                        <i className="vc_tta-icon fa fa-newspaper-o"></i>
-                                                                        <span className="vc_tta-title-text">{t("news")}</span></a>
-                                                                </li>
-                                                                <li className="vc_tta-tab" data-vc-tab="">
-                                                                    <a href="#notification" onClick={e => horzontalToggleTabs(e, 'notification', 'news-events')} data-vc-tabs="" data-vc-container=".vc_tta" role="tab" aria-controls="notification" aria-selected="false">
-                                                                        <i className="vc_tta-icon fa fa-bell-o"></i>
-                                                                        <span className="vc_tta-title-text">{t("notification")}</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li className="vc_tta-tab" data-vc-tab="">
-                                                                    <a href="#documents" onClick={e => horzontalToggleTabs(e, 'documents', 'news-events', 'vc_active')} data-vc-tabs="" data-vc-container=".vc_tta" role="tab" aria-controls="documents" aria-selected="false">
-                                                                        <i className="vc_tta-icon fa fa-file-text-o"></i>
-                                                                        <span className="vc_tta-title-text">{t("documents")}</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <div className="vc_tta-panels-container">
-                                                            <div className="vc_tta-panels news-events">
-                                                                <div className="vc_tta-panel vc_active" id="news" data-vc-content=".vc_tta-panel-body" role="tabpanel">
-                                                                    <div className="vc_tta-panel-heading">
-                                                                        <h4 className="vc_tta-panel-title">
-                                                                            <a href="#documents" data-vc-accordion="" data-vc-container=".vc_tta-container">
-                                                                                <i className="vc_tta-icon fa fa-file-text-o"></i>
-                                                                                <span className="vc_tta-title-text">{t("news")}</span>
-                                                                            </a>
-                                                                        </h4>
-                                                                    </div>
-                                                                    <div className="vc_tta-panel-body">
-                                                                        <div className="content-view gen-list  no-border no-bg  padding-0 border-radius-none default-list ">
-                                                                            <ul className='text-start'>
-                                                                                {newsUpdateData?.filter(x => x?.newsUpdateTypeName?.toLowerCase() === 'notification').length === 0 && <li>No New News</li>}
-                                                                                {
-                                                                                    newsUpdateData?.filter(x => x?.newsUpdateTypeName?.toLowerCase() === 'news').map((ele, index) => {
-                                                                                        if (index > 9)
-                                                                                            return;
-                                                                                        return <li key={index} style={{ cursor: 'pointer' }}>
-                                                                                            <Link to={ele?.webUrl} target='_blank'>{ele[`${langType}Title`]}</Link>
-                                                                                        </li>
-                                                                                    })
-                                                                                }
-                                                                                {newsUpdateData?.filter(x => x?.newsUpdateTypeName?.toLowerCase() === 'notification').length > 10 && <li style={{ listStyle: 'none' }}>
-                                                                                    <Link to="#/newsEvents" className='btn btn-sm btn-secondary'>{t("readMore")}  {t("news")}...</Link>
-                                                                                </li>
-                                                                                }
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="vc_tta-panel" id="notification" data-vc-content=".vc_tta-panel-body" role="tabpanel">
-                                                                    <div className="vc_tta-panel-heading">
-                                                                        <h4 className="vc_tta-panel-title">
-                                                                            <a href="#notification" data-vc-accordion="" data-vc-container=".vc_tta-container">
-                                                                                <i className="vc_tta-icon fa fa-bell-o"></i>
-                                                                                <span className="vc_tta-title-text">{t("notification")}</span>
-                                                                            </a>
-                                                                        </h4>
-                                                                    </div>
-                                                                    <div className="vc_tta-panel-body">
-                                                                        <div className="gen-list  no-border no-bg  padding-0 border-radius-none default-list ">
-                                                                            <ul className="nopostfound" data-found="false">
-                                                                                {newsUpdateData?.filter(x => x?.newsUpdateTypeName?.toLowerCase() === 'notification').length === 0 && <li>No new notifications
-                                                                                </li>}
-                                                                                {
-                                                                                    newsUpdateData?.filter(x => x?.newsUpdateTypeName?.toLowerCase() === 'notification').map((ele, index) => {
-                                                                                        if (index > 9)
-                                                                                            return;
-                                                                                        return <li key={index} style={{ cursor: 'pointer' }}>
-                                                                                            <Link to={ele?.webUrl} target='_blank'>{ele[`${langType}Title`]}</Link>
-                                                                                        </li>
-                                                                                    })
-                                                                                }
-                                                                                {newsUpdateData?.filter(x => x?.newsUpdateTypeName?.toLowerCase() === 'notification').length > 10 && <li style={{ listStyle: 'none' }}>
-                                                                                    <Link to="#/newsEvents" className='btn btn-sm btn-secondary'> {t("showAll")} {t("notifications")}...</Link>
-                                                                                </li>
-                                                                                }
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="vc_tta-panel" id="documents" data-vc-content=".vc_tta-panel-body" role="tabpanel">
-                                                                    <div className="vc_tta-panel-heading">
-                                                                        <h4 className="vc_tta-panel-title">
-                                                                            <a href="#documents" data-vc-accordion="" data-vc-container=".vc_tta-container">
-                                                                                <i className="vc_tta-icon fa fa-file-text-o"></i>
-                                                                                <span className="vc_tta-title-text">{t("documents")}</span>
-                                                                            </a>
-                                                                        </h4>
-                                                                    </div>
-                                                                    <div className="vc_tta-panel-body">
-                                                                        <div className="content-view gen-list  no-border no-bg  padding-0 border-radius-none default-list ">
-                                                                            <ul>
-                                                                                {newsUpdateData?.filter(x => x?.newsUpdateTypeName?.toLowerCase() === 'notification').length === 0 && <li>No new documents</li>}
-                                                                                {
-                                                                                    newsUpdateData?.filter(x => x?.newsUpdateTypeName?.toLowerCase() === 'document').map((ele, index) => {
-                                                                                        if (index > 9)
-                                                                                            return;
-                                                                                        return <li key={index} style={{ cursor: 'pointer' }}>
-                                                                                            <Link to={ele?.webUrl?.indexOf('http') === -1 ? (window.location.href) + ele?.webUrl : ele?.webUrl} target='_blank'>{ele[`${langType}Title`]}</Link>
-                                                                                        </li>
-                                                                                    })
-                                                                                }
-                                                                                {newsUpdateData?.filter(x => x?.newsUpdateTypeName?.toLowerCase() === 'notification').length > 10 && <li style={{ listStyle: 'none' }}>
-                                                                                    <Link to="#" className='btn btn-sm btn-secondary'>{t("viewAll")}  {t("documents")}...</Link>
-                                                                                </li>
-                                                                                }
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                <div className='wrapper' style={{ margin: '35px 15px 0 15px', padding: '10px' }}>
+                                    <div className='gen-list no-border no-bg padding-0 border-radius-none iconTop-textBottom-list large-circle normal-font'>
+                                        <ul>
+                                            <li className="  ">
+                                                <div className="list-anchor">
+                                                    <img src="uploads/Icon/temple.png" style={{ margin: '10px' }} alt="" />
+                                                    <div className="list-text"><b>Temples:</b> 3,000+</div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="wpb_column vc_column_container vc_col-sm-6">
-                                        <div className="vc_column-inner ">
-                                            <div className="wpb_wrapper" style={{ marginTop: '35px' }}>
-                                                <Carousel
-                                                    showArrows={true}
-                                                    infiniteLoop={true}
-                                                    showThumbs={false}
-                                                    stopOnHover={true}
-                                                    swipeable={true}
-                                                    autoPlay={true}
-                                                    interval={parseInt(process.env.REACT_APP_CAROUSEL_INTERVAL)}
+                                            </li>
+                                            <li className="  ">
+                                                <div className="list-anchor">
+                                                    <img src="uploads/Icon/hotel.png" style={{ margin: '10px' }} alt="" />
+                                                    <div className="list-text"><b>Hotels:</b> 1800+</div>
+                                                </div>
+                                            </li>
+                                            <li className="  ">
+                                                <div className="list-anchor">
 
-                                                // onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb}
-                                                >
-                                                    <div>
-                                                        <LazyLoadImage effect='blur' src="uploads/2018/01/01.jpg" />
-                                                        <p className="heading3 legend">{t("welcomToKashi")}</p>
-                                                    </div>
-                                                    <div>
-                                                        <LazyLoadImage effect='blur' src="uploads/2018/01/02.jpg" />
-                                                        <p className="heading3 legend">{t("welcomToKashi")}</p>
-                                                    </div>
-                                                    <div>
-                                                        <LazyLoadImage effect='blur' src="uploads/2018/01/03.jpg" />
-                                                        <p className="heading3 legend">{t("welcomToKashi")}</p>
-                                                    </div>
-                                                </Carousel>
-                                            </div>
-                                        </div>
+                                                    <img src="uploads/Icon/tent.png" style={{ margin: '10px' }} alt="" />
+
+
+
+                                                    <div className="list-text"><b>Tent City:</b> 1500+ Tents</div>
+                                                </div>
+                                            </li>
+                                            <li className="  ">
+                                                <div className="list-anchor">
+                                                    <img src="uploads/Icon/visitor.png" style={{ margin: '10px' }} alt="" />
+                                                    <div className="list-text"><b>Daily Visiors:</b> 10000+</div>
+                                                </div>
+                                            </li>
+                                            <li className="  ">
+                                                <div className="list-anchor">
+                                                    <img src="uploads/Icon/ghat.png" style={{ margin: '10px' }} alt="" />
+                                                    <div className="list-text"><b>Ghats:</b> 30+ </div>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
+                                <hr/>
+                                <div className='vc_row-full-width vc_clearfix'></div>
+                             <Notification></Notification>
+                              
                                 <div data-vc-full-width="true" data-vc-full-width-init="true" className="fest_event_slider vc_row wpb_row vc_row-fluid themtwo-public-utility vc_custom_1516181837339 vc_row-has-fill"
                                     style={{ position: 'relative', boxSizing: 'borderBox' }}>
                                     <div className="wpb_column vc_column_container vc_col-sm-12">
