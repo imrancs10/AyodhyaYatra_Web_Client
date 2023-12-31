@@ -10,7 +10,7 @@ h2,
 h3,
 .heading3 {
     font-size: 1.5em;
-    color:#fff;
+    color: #FF5A09 !important;
 }
 
 h4,
@@ -6227,7 +6227,7 @@ a.menuToggle:hover {
 .mva7-thc-activetheme-district-theme-2 .find-services-tab .gen-tab .resp-tabs-list .resp-tab-item.resp-tab-active,
 .home-2 .find-services-tab .gen-tab.tab-vertical .resp-tabs-container,
 .home-2 .find-services-tab .gen-tab .resp-tabs-list .resp-tab-item.resp-tab-active {
-    background-color: #393939 !important;
+    background-color: #5c0505 !important;
     border-radius: 0px;
     border: none;
 }

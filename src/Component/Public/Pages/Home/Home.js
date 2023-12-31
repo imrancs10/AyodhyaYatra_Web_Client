@@ -9,17 +9,19 @@ import { useTranslation } from 'react-i18next';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Notification from './Notification';
+import Carousel from '../../Common/Carousel/Carousel';
+import EventSlider from './EventSlider';
 window.jQuery = window.$ = $;
 export default function Home() {
     const { t, i18n } = useTranslation();
     const langType = i18n.language.split('-')[0];
-    var Carousel = require('react-responsive-carousel').Carousel;
+    //var Carousel = require('react-responsive-carousel').Carousel;
     const [newsUpdateData, setNewsUpdateData] = useState([]);
 
     useEffect(() => {
         Api.Get(apiUrls.newsUpdateController.getNewsUpdate)
             .then(res => {
-                //setNewsUpdateData(res.data);
+                setNewsUpdateData(res.data);
             });
     }, []);
 
@@ -166,38 +168,7 @@ export default function Home() {
 
 
     // forward/Back controls
-    const plusSlides = (n) => {
-        SlideShow((slidePosition += n));
-    }
 
-    //  images controls
-    const currentSlide = (n) => {
-        SlideShow((slidePosition = n));
-    }
-
-    const SlideShow = (n) => {
-        var i;
-        var slides = document.getElementsByClassName("carousel-box");
-        var circles = document.getElementsByClassName("dot");
-        if (slides.length === 0)
-            return;
-        if (n > slides.length) {
-            slidePosition = 1;
-        }
-        if (n < 1) {
-            slidePosition = slides.length;
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < circles.length; i++) {
-            circles[i].className = circles[i].className.replace(" dot--fill", "");
-        }
-        slides[slidePosition - 1].style.display = "block";
-        circles[slidePosition - 1].className += " dot--fill";
-    }
-    var slidePosition = 1;
-    SlideShow(slidePosition);
 
     const toggleTabs = (e, tabId, contentContainerClass) => {
         e.preventDefault();
@@ -233,42 +204,17 @@ export default function Home() {
 
     return (
         <main>
-            <Carousel
-                showArrows={true}
-                infiniteLoop={true}
-                showThumbs={false}
-                stopOnHover={true}
-                swipeable={true}
-                autoPlay={true}
-                interval={parseInt(process.env.REACT_APP_CAROUSEL_INTERVAL)}
-
-            // onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb}
-            >
-                <div>
-                    <LazyLoadImage effect='blur' src="uploads/01.jpg" />
-                    <p className="heading3 legend">{t("welcomToKashi")}</p>
+            <Carousel>
+                <div className='item-container'>
+                    <LazyLoadImage effect='blur' src="uploads/02.jpg" />
                 </div>
-                <div>
-                    <video className="video" muted="" autoPlay="" loop="">
+                <div className='item-container'>
+                    <LazyLoadImage effect='blur' src="uploads/01.jpg" />
+                </div>
+                <div className='item-container'>
+                    <video className="video" muted="" autoPlay={true} loop="">
                         <source src="uploads/video2.mp4" type="video/mp4" />
                     </video>
-                    <p className="heading3 legend">{t("welcomToKashi")}</p>
-                </div>
-                <div>
-                    <LazyLoadImage effect='blur' src="uploads/03.jpg" />
-                    <p className="heading3 legend">{t("welcomToKashi")}</p>
-                </div>
-                <div>
-                    <LazyLoadImage effect='blur' src="uploads/03.jpg" />
-                    <p className="heading3 legend">{t("welcomToKashi")}</p>
-                </div>
-                <div>
-                    <LazyLoadImage effect='blur' src="uploads/02.jpg" />
-                    <p className="heading3 legend">{t("welcomToKashi")}</p>
-                </div>
-                <div>
-                    <LazyLoadImage effect='blur' src="uploads/01.jpg" />
-                    <p className="heading3 legend">{t("welcomToKashi")}</p>
                 </div>
             </Carousel>
             <div className="wrapper bodyWrapper no_padding">
@@ -507,57 +453,11 @@ export default function Home() {
                                         </ul>
                                     </div>
                                 </div>
-                                <hr/>
+                                <hr />
                                 <div className='vc_row-full-width vc_clearfix'></div>
-                             <Notification></Notification>
-                              
-                                <div data-vc-full-width="true" data-vc-full-width-init="true" className="fest_event_slider vc_row wpb_row vc_row-fluid themtwo-public-utility vc_custom_1516181837339 vc_row-has-fill"
-                                    style={{ position: 'relative', boxSizing: 'borderBox' }}>
-                                    <div className="wpb_column vc_column_container vc_col-sm-12">
-                                        <div className="vc_column-inner vc_custom_1514961350587">
-                                            <div className="wpb_wrapper">
-                                                <h2 className="heading3">{t("upcomingFestivalEvents")} </h2>
-                                                <div className="carousel-container1">
-                                                    {
-                                                        (getEventsData()?.length === 0 ? getEventsData(true) : getEventsData()).map((ele, index) => {
-                                                            return <div key={index} className="carousel-box" style={{ display: index === 0 ? 'block' : 'none' }}>
-                                                                <div className="carousel1">
-                                                                    <LazyLoadImage effect='blur' className="imgcarousell" src={process.env.REACT_APP_API_URL + ele?.images[0]?.filePath} alt="Foto-1" />
-                                                                    <div className="testimonial text-start">
-                                                                        <p className="testimonial-job">{ele[`${langType}Title`]}</p>
-                                                                        <p className="testimonial-text">
-                                                                            Date : {common.getHtmlDate(ele?.eventDate)}
-                                                                        </p>
-                                                                        <p className="testimonial-author">
-                                                                            {ele[`${langType}Description`]}
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        })
-                                                    }
+                                <Notification newsUpdateData={newsUpdateData}></Notification>
+                                <EventSlider t={t} langType={langType} getEventsData={getEventsData}></EventSlider>
 
-                                                    <button className="btn1 btn1--left" onClick={e => plusSlides(-1)}>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" className="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
-                                                        </svg>
-                                                    </button>
-                                                    <button className="btn1 btn1--right" onClick={e => plusSlides(1)}>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" className="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                                                        </svg>
-                                                    </button>
-                                                    <div className="dots">
-                                                        {(getEventsData().length === 0 ? getEventsData(true) : getEventsData()).map((ele, index) => {
-                                                            return <span key={index} className={index === 0 ? "dot dot-fill" : "dot dot-fill"} onClick={e => currentSlide(index + 1)}></span>
-                                                        })
-                                                        }
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div className="vc_row-full-width vc_clearfix"></div>
                                 <div data-vc-full-width="true" data-vc-full-width-init="true"
                                     className="vc_row wpb_row vc_row-fluid themtwo-public-utility vc_custom_1516181837339 vc_row-has-fill"
@@ -711,48 +611,7 @@ export default function Home() {
                                 </div>
                                 <div className="vc_row-full-width vc_clearfix"></div>
                                 <div className="vc_row-full-width vc_clearfix"></div>
-                                {/* <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid vc_custom_1516190885782 vc_row-has-fill" style={{ position: 'relative', left: '-28.5833px', boxSizing: 'border-box', width: '1263px', paddingLeft: '28.5833px', paddingRight: '28.2567px' }}>
-                                    <div className="wpb_column vc_column_container vc_col-sm-12">
-                                        <div className="vc_column-inner ">
-                                            <div className="wpb_wrapper">
-                                                <div className="gen-list no-border no-bg padding-0 border-radius-none iconTop-textBottom-list large-circle  normal-font ">
-                                                    <ul>
-                                                        <li className="  ">
-                                                            <div className="list-anchor">
-                                                                <LazyLoadImage effect='blur' src="uploads/Icon/temple.png" style={{ margin: '10px' }} alt="" />
-                                                                <div className="list-text"><b>Temples:</b> 3,000+</div>
-                                                            </div>
-                                                        </li>
-                                                        <li className="  ">
-                                                            <div className="list-anchor">
-                                                                <LazyLoadImage effect='blur' src="uploads/Icon/hotel.png" style={{ margin: '10px' }} alt="" />
-                                                                <div className="list-text"><b>Hotels:</b> 1800+</div>
-                                                            </div>
-                                                        </li>
-                                                        <li className="  ">
-                                                            <div className="list-anchor">
-                                                                <LazyLoadImage effect='blur' src="uploads/Icon/tent.png" style={{ margin: '10px' }} alt="" />
-                                                                <div className="list-text"><b>Tent City:</b> 1500+ Tents</div>
-                                                            </div>
-                                                        </li>
-                                                        <li className="  ">
-                                                            <div className="list-anchor">
-                                                                <LazyLoadImage effect='blur' src="uploads/Icon/visitor.png" style={{ margin: '10px' }} alt="" />
-                                                                <div className="list-text"><b>Daily Visiors:</b> 10000+</div>
-                                                            </div>
-                                                        </li>
-                                                        <li className="  ">
-                                                            <div className="list-anchor">
-                                                                <LazyLoadImage effect='blur' src="uploads/Icon/ghat.png" style={{ margin: '10px' }} alt="" />
-                                                                <div className="list-text"><b>Ghats:</b> 30+ </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>*/}
+                               
                                 <div className="vc_row-full-width vc_clearfix"></div>
                                 <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" className="vc_row wpb_row vc_row-fluid vc_row-no-padding" style={{ position: 'relative', left: '-28.5833px', boxSizing: 'border-box', width: '1263px' }}>
                                     <div className="wpb_column vc_column_container vc_col-sm-12">

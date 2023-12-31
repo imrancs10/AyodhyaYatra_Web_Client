@@ -2,23 +2,13 @@ import React, { useState,useEffect } from 'react'
 import './notification.css'
 import { useTranslation } from 'react-i18next';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Api } from '../../../../apis/Api';
-import { apiUrls } from '../../../../apis/ApiUrls';
 
-export default function Notification() {
+export default function Notification({newsUpdateData}) {
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [newsUpdateData, setNewsUpdateData] = useState([]);
     
     const { t, i18n } = useTranslation();
     const langType = i18n.language.split('-')[0];
     var Carousel = require('react-responsive-carousel').Carousel;
-
-    useEffect(() => {
-        Api.Get(apiUrls.newsUpdateController.getNewsUpdate)
-            .then(res => {
-                setNewsUpdateData(res.data);
-            });
-    }, []);
 
     const handleMouseOver = (e) => {
         if (e.target.stop)
@@ -78,7 +68,7 @@ export default function Notification() {
                                             7.35 crore visit Ayodhya Vishwanath Dham in opening year
                                         </a>
                                         <span href="News&amp;Events.html" style={{ textAlign: 'center' }}>
-                                            <button class="btn btn-primary">Read More</button>
+                                            <button className="btn btn-primary">Read More</button>
                                         </span>
                                     </li>
                                     <li>
@@ -86,7 +76,7 @@ export default function Notification() {
                                             7.35 crore visit Ayodhya Vishwanath Dham in opening year
                                         </a>
                                         <span href="News&amp;Events.html" style={{ textAlign: 'center' }}>
-                                            <button class="btn btn-primary">Read More</button>
+                                            <button className="btn btn-primary">Read More</button>
                                         </span>
                                     </li>
                                     <li>
@@ -94,7 +84,7 @@ export default function Notification() {
                                             7.35 crore visit Ayodhya Vishwanath Dham in opening year
                                         </a>
                                         <span href="News&amp;Events.html" style={{ textAlign: 'center' }}>
-                                            <button class="btn btn-primary">Read More</button>
+                                            <button className="btn btn-primary">Read More</button>
                                         </span>
                                     </li>
 
@@ -102,21 +92,21 @@ export default function Notification() {
                             </marquee>
                         </div>}
                         {selectedIndex === 1 && <div className='panet-data-item'>
-                            <div class="vc_tta-panel-body">
-                                <div class="gen-list  no-border no-bg  padding-0 border-radius-none default-list ">
-                                    <ul class="nopostfound" data-found="false">
+                            <div className="vc_tta-panel-body">
+                                <div className="gen-list  no-border no-bg  padding-0 border-radius-none default-list ">
+                                    <ul className="nopostfound" data-found="false">
                                         <li>
                                             <a href="https://pages.razorpay.com/pl_KbZyVeQyNQoOFU/view">Visitors now can reserve seat for Ganga Arti</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <a href="News&amp;Events.html" style={{ textAlign: 'center' }}>
-                                    <button class="btn btn-primary">Read More</button>
+                                    <button className="btn btn-primary">Read More</button>
                                 </a>
                             </div>
                         </div>}
                         {selectedIndex === 2 && <div className='panet-data-item'>
-                            <div class="content-view gen-list  no-border no-bg  padding-0 border-radius-none default-list ">
+                            <div className="content-view gen-list  no-border no-bg  padding-0 border-radius-none default-list ">
                                 <ul>
                                     <li>
                                         <a href="uploads\Doc\Pawanpath Detailed.pdf" target="_blank" aria-label="Title of Document will appear here PDF 16 KB - opens in new window">Pawanpath Details</a>
@@ -141,7 +131,7 @@ export default function Notification() {
                                 </ul>
                             </div>
                             <a href="News&amp;Events.html" style={{ textAlign: 'center' }}>
-                                <button class="btn btn-primary">Read More</button>
+                                <button className="btn btn-primary">Read More</button>
                             </a>
                         </div>}
                     </div>

@@ -12,15 +12,56 @@ export default function () {
         <footer id="footer2" className="footer-home">
             <div className="container">
                 <div className="footerMenu">
-                    <div className="wpb_column vc_column_container vc_col-sm-3">
+                    <div class="wpb_column vc_column_container vc_col-sm-6">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper">
+                                <div class="gen-list no-border no-bg padding-0 border-radius-none default-list important-links-three  normal-font ">
+
+                                    <img class="site_logo" height="120" id="logo" src="uploads/logodark.png" alt="Ayodhya Yatra Logo" style={{ marginBottom: '1em' }} />
+
+                                    <ul class="f-link">
+                                        <li class="" style={{ color: 'white' }}>
+                                            <span> Ayodhya counted among the seven most sacred cities of ancient India, is situated on the right bank of the river Saryu, once the capital of Avadh region. Ayodhya holds a place of pride among the devotees of Lord Rama, who was a descendant of the Surya Vansh which is believed to have been founded by Manu, the lawgiver of the Hindus.</span>
+                                        </li>
+
+                                    </ul>
+
+                                    <ul class="f-link">
+                                        <li class="" style={{ display: 'inline-block' }}>
+                                            <a href="">
+                                                <img class="site_logo" height="30" id="logo" src="uploads/facebook.png" alt="Facebook" />
+                                            </a>
+                                        </li>
+                                        <li class="" style={{ display: 'inline-block' }}>
+                                            <a href="">
+                                                <img class="site_logo" height="30" id="logo" src="uploads/instagram.png" alt="Instagram" />
+                                            </a>
+                                        </li>
+                                        <li class="" style={{ display: 'inline-block' }}>
+                                            <a href="">
+                                                <img class="site_logo" height="30" id="logo" src="uploads/twitter.png" alt="Twitter" />
+                                            </a>
+                                        </li>
+                                        <li class="" style={{ display: 'inline-block' }}>
+                                            <a href="">
+                                                <img class="site_logo" height="30" id="logo" src="uploads/YouTube.png" alt="Youtube" />
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="wpb_column vc_column_container vc_col-sm-2">
                         <div className="vc_column-inner ">
                             <div className="wpb_wrapper">
                                 <div className="gen-list no-border no-bg padding-0 border-radius-none default-list important-links-three  normal-font ">
-                                    <h2 className="heading3">{t("aboutKashi")}</h2>
+                                    <h2 className="heading3">{t("aboutAyodhya")}</h2>
                                     <ul className="f-link">
                                         <li className="">
                                             <Link to='/History'>{t("history")}</Link>
-                                        </li>                                      
+                                        </li>
                                         <li className="">
                                             <Link to='/KeyFacts'>{t("keyFacts")}</Link>
                                         </li>
@@ -36,7 +77,7 @@ export default function () {
                         </div>
                     </div>
 
-                    <div className="wpb_column vc_column_container vc_col-sm-3">
+                    <div className="wpb_column vc_column_container vc_col-sm-2">
                         <div className="vc_column-inner ">
                             <div className="wpb_wrapper">
                                 <div className="gen-list no-border no-bg padding-0 border-radius-none default-list important-links-three  normal-font ">
@@ -60,31 +101,7 @@ export default function () {
                         </div>
                     </div>
 
-                    <div className="wpb_column vc_column_container vc_col-sm-3">
-                        <div className="vc_column-inner ">
-                            <div className="wpb_wrapper">
-                                <div className="gen-list no-border no-bg padding-0 border-radius-none default-list important-links-three  normal-font ">
-                                    <h2 className="heading3">{t("followsUs")}</h2>
-                                    <ul className="f-link">
-                                        <li className="">
-                                            <Link to='https://www.facebook.com/people/Uttar-Pradesh-State-Tourism-Development-Corporation-Ltd/100086977891416/' target='_blank'>{t("facebook")}</Link>
-                                        </li>
-                                        <li className="">
-                                            <Link to='https://twitter.com/UPSTDCUp' target='_blank'>{t("twitter")}</Link>
-                                        </li>
-                                        <li className="">
-                                            <Link to='https://www.youtube.com/@KASHIYATRAA' target='_blank'>{t("youtube")}</Link>
-                                        </li>
-                                        <li className="">
-                                            <Link to='https://z-p42.www.instagram.com/accounts/login/?next=/explore/tags/upstdc/' target='_blank'>{t("instagram")}</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="wpb_column vc_column_container vc_col-sm-3">
+                    <div className="wpb_column vc_column_container vc_col-sm-2">
                         <div className="vc_column-inner ">
                             <div className="wpb_wrapper">
                                 <div className="gen-list no-border no-bg padding-0 border-radius-none default-list important-links-three  normal-font ">
@@ -108,25 +125,19 @@ export default function () {
                         </div>
                     </div>
                 </div>
-                <div className="footerMenu" style={{ marginTop: '12%' }}>
-                    {/* <ul id="menu-footer-en" className="menu">
-                <li id="menu-item-2501" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2501"><a href="javascript:void(0);">Website Policies</a></li>
-                <li id="menu-item-2503" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2503"><a href="Helpline.html">Help</a></li>
-                <li id="menu-item-2506" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2506"><a href="ContactUs.html">Contact Us</a></li>
-            </ul>  */}
-        </div>  
-         <div className="copyRights">
-         <div className="pd-bottom5 color-white ctnt-ownd-dis">{t("downloadOurMobileApp")} : <span>
-                                    <a href='/mobileApp/android/kashiyatra.apk'>
-                                        <LazyLoadImage effect='blur' style={{ width: '32px', height: '32px' }} src='/mobileApp/android.png' />
-                                    </a>
-                                </span>
-                                    <span>
-                                        <a href="https://apps.apple.com/in/app/kashi-yatra/id6450551365" target="_blank" download>
-                                            <LazyLoadImage effect='blur' style={{ width: '32px', height: '32px' }} src='/mobileApp/ios.png' />
-                                        </a>
-                                    </span>
-                                </div>
+                <div className='clearfix'></div>
+                <div className="copyRights">
+                    <div className="pd-bottom5 color-white ctnt-ownd-dis">{t("downloadOurMobileApp")} : <span>
+                        <a href='/mobileApp/android/kashiyatra.apk'>
+                            <LazyLoadImage effect='blur' style={{ width: '32px', height: '32px' }} src='/mobileApp/android.png' />
+                        </a>
+                    </span>
+                        <span>
+                            <a href="https://apps.apple.com/in/app/kashi-yatra/id6450551365" target="_blank" download>
+                                <LazyLoadImage effect='blur' style={{ width: '32px', height: '32px' }} src='/mobileApp/ios.png' />
+                            </a>
+                        </span>
+                    </div>
 
                     <div className="pd-bottom5 color-white ctnt-ownd-dis">{t("footer1")}</div>
                     <div className="copyRightsText">
