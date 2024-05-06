@@ -1308,21 +1308,6 @@ select {
   width: 100%;
   border: none;
   background: none;
-  padding: 8px 0 0 0;
-  height: 30px;
-  border-radius: 3px;
-  outline: none;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
-}
-
-select:hover,
-select:focus {
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  border: none;
-  /*  background: none;*/
-  padding: 8px 0 0 0;
   height: 30px;
   border-radius: 3px;
   outline: none;

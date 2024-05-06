@@ -23,7 +23,7 @@ const redirectURL = (row, header) => {
 }
 
 const headerFormat = {
-  templeDetails: [
+  attractionDetails: [
     { name: "Name (Eng)", prop: "enName" },
     { name: "Name (हिंदी)", prop: "hiName" },
     { name: "Lat.", prop: "latitude" },
@@ -33,6 +33,10 @@ const headerFormat = {
     { name: "Description (हिंदी)", prop: "hiDescription",customColumn:(data)=>{return data?.hiDescription.substr(0,100)+"...."},  action: { dAlign: "start" } },
     { name: "360 Degree Video URL", prop: "temple360DegreeVideoURL", customColumn: redirectURL },
     { name: "Images", prop: "Images", customColumn: renderImage }
+  ],
+  attractionTypeDetails: [
+    { name: "Name", prop: "name" },
+    { name: "Code", prop: "code" }
   ],
   masterDataDetails: [
     { name: "Name (Eng)", prop: "enName" },

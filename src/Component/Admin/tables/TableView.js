@@ -99,7 +99,7 @@ export default function TableView({ option }) {
                                                 option.data.length === 0 && (
                                                     <tr>
                                                         <td style={{ textAlign: "center", height: "32px", verticalAlign: "middle" }} colSpan={option.headers.length + 1}>
-                                                            <AlertMessage message="No Record Found" textAlign="center" type="info" />
+                                                            No Record Found
                                                         </td>
                                                     </tr>
                                                 )

@@ -1,10 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Link, useSearchParams } from 'react-router-dom';
 import { Api } from '../../apis/Api';
 import { apiUrls } from '../../apis/ApiUrls';
-import { useTranslation } from 'react-i18next';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function AdDashboard() {
   const [feedbackDetails, setFeedbackDetails] = useState({});
