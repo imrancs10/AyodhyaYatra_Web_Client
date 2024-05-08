@@ -33,6 +33,8 @@ import AttractionTypeDetail from './Component/Admin/MasterAttraction/AttractionT
 import AttractionDetail from './Component/Admin/MasterAttraction/AttractionDetails';
 import AddAttraction from './Component/Admin/MasterAttraction/AddAttraction';
 import AddAttractionType from './Component/Admin/MasterAttraction/AddAttractionType';
+import AttractionYatraMapper from './Component/Admin/MasterData/Yatra/AttractionYatraMapper';
+import AddAtractionYatraMapper from './Component/Admin/MasterData/Yatra/AddAtractionYatraMapper';
 
 function App() {
   const [authData, setAuthData] = useState({});
@@ -73,7 +75,7 @@ function App() {
       <Router>
         <Routes>
           <Route element={<AdminLayout authData={authData} />}>
-          <Route path="/" element={<AdDashboard />} />
+            <Route path="/" element={<AdDashboard />} />
             <Route path="/admin/Dashboard" element={<AdDashboard />} />
             <Route path="/admin/attraction/details" element={<AttractionDetail />} />
             <Route path="/admin/attraction/type/details" element={<AttractionTypeDetail />} />
@@ -95,8 +97,10 @@ function App() {
             <Route path="/admin/master/videogallery/add" element={<AddVideoGallery />} />
             <Route path="/admin/master/360DegreeGallery/detail" element={<ThreeSixtyDegreeGalleryDetails />} />
             <Route path="/admin/master/360DegreeGallery/add" element={<AddThreeSixtyDegreeGallery />} />
-            <Route path="/admin/download/qr" element={<DownloadQrCode />} />  
+            <Route path="/admin/download/qr" element={<DownloadQrCode />} />
             <Route path="/admin/attraction/type/add" element={<AddAttractionType />} />
+            <Route path='/admin/yatra/attraction/mapper' element={<AttractionYatraMapper />} />
+            <Route path='/admin/yatra/attraction/mapper/add' element={<AddAtractionYatraMapper />} />
           </Route>
           <Route path="/admin/login" element={<Login setAuthData={setAuthData} />} />
           <Route path="/admin/register" element={<Register />} />

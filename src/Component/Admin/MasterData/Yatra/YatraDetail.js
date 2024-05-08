@@ -9,9 +9,6 @@ import ButtonBox from '../../Common/ButtonBox';
 import { headerFormat } from '../../../../utils/tableHeaderFormat'
 
 export default function YatraDetail() {
-  const YatraDetailType = {
-
-  }
   let navigate = useNavigate();
   const [pageNo, setPageNo] = useState(1);
   const [pageSize, setPageSize] = useState(20);
@@ -33,13 +30,13 @@ export default function YatraDetail() {
       }
     ]
   }
-  const handleSearch = (searchTerm) => {
+
+  const handleSearch=()=>{
 
   }
-  const handleDelete = (id) => {
-
+  const handleDelete=()=>{
+    
   }
-
   const tableOptionTemplet = {
     headers: headerFormat.YatraDetails,
     data: [],
@@ -75,14 +72,6 @@ export default function YatraDetail() {
   return (
     <>
       <Breadcrumb option={breadcrumbOption}></Breadcrumb>
-      {/* <div className='d-flex justify-content-end mb-3'>
-        <div className='mx-2'>
-          <Dropdown className="form-control-sm"></Dropdown>
-        </div>
-        <div className='mx-2'>
-          <ButtonBox type="Add" className="btn-sm"></ButtonBox>
-        </div>
-      </div> */}
       <TableView option={tableOption} />
     </>
   )

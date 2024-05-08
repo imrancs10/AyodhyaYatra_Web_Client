@@ -62,7 +62,7 @@ export default function TempleDetails() {
     actions: {
       view: {
         handler: (id) => {
-          navigate("/admin/temple/add?templeId=" + id);
+          navigate("/admin/attraction/add?id=" + id);
         }
       },
       popupModelId: "",

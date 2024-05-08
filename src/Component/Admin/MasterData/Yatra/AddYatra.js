@@ -14,6 +14,7 @@ import { toastMessage } from '../../../../constants/ConstantValues'
 import { validationMessage } from '../../../../constants/validationMessage'
 import { fileUploadModuleName } from '../../../../constants/enums';
 import { useSearchParams, useNavigate } from 'react-router-dom'
+import Breadcrumb from '../../Common/Breadcrumb'
 
 export default function AddYatra() {
   let navigate = useNavigate();
@@ -29,18 +30,10 @@ export default function AddYatra() {
     taDescription: "",
     teDescription: "",
     id: 0,
-    // latitude: "",
-    // longitude: "",
-    // padavId: 0,
-    // yatraId: 0,
-    // sequenceNo: ""
   };
   const [yatraModel, setyatraModel] = useState(yatraModelTemplate);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState();
-  // const [padavList, setPadavList] = useState([]);
-  // const [yatraList, setYatraList] = useState([]);
-  // const [templeList, setTempleList] = useState([]);
 
   const changeHandler = (e) => {
     var { name, type, value } = e.target;
@@ -100,52 +93,41 @@ export default function AddYatra() {
     }
   }, [editYatraId]);
 
-  // useEffect(() => {
-  //   var apiList = [];
-  //   apiList.push();
-  //   apiList.push(Api.Get(apiUrls.masterDataController.getYatras));
-  //   apiList.push(Api.Get(apiUrls.templeController.getTemples));
-  //   Api.MultiCall(apiList)
-  //     .then(res => {
-  //       setYatraList(res[0].data);
-  //       setTempleList(res[1].data.data);
-  //     });
-  // }, []);
-
-  // useEffect(() => {
-  //   Api.Get(apiUrls.masterDataController.getPadavByYatraId+`/${yatraModel.yatraId}`)
-  //   .then(res=>{
-  //     setPadavList(res.data);
-  //   })
-  // }, [yatraModel.yatraId])
-
-
-
   const validateYatra = () => {
-    var { enName, id } = yatraModel;
+    var { enName, id, enDescription } = yatraModel;
     var err = {};
-    // if (!yatraId || yatraId === 0) err.yatraId = validationMessage.reqYatraName;
-    // if (yatraId > 0) {
-    //   if (!padavId || padavId === 0) err.padavId = validationMessage.reqPadavName;
-    //   if (!sequenceNo || sequenceNo === "") err.sequenceNo = validationMessage.reqSequenceNumber;
-    // }
-    // if (id === 0) {
-    //   err.id = validationMessage.reqTempleSelect;
-    // }
     if (id === -1 || id > 0) {
       if (!enName || enName.length < 6) err.enName = validationMessage.reqYatraEn;
-      // if (!enDescription || enDescription.length < 6) err.enDescription = validationMessage.reqTempleDescEn;
-      // if (!latitude || latitude.length < 6) err.latitude = validationMessage.reqTempleLatitude;
-      // if (!longitude || longitude.length < 6) err.longitude = validationMessage.reqTempleLongitude;
+      if (!enDescription || enDescription.length < 6) err.enDescription = validationMessage.reqAttractionDescEn;
     }
     return err;
   }
-  const resetTempleHandler = () => {
+  const resetYatraHandler = () => {
     navigate('/admin/master/yatra/add')
     setyatraModel({ ...yatraModelTemplate });
   }
+  const breadcrumbOption = {
+    title: 'Add Yatra',
+    items: [
+      {
+        isActive: false,
+        title: "Yatra Details",
+        icon: "fa-solid fa-gopuram"
+      }
+    ],
+    buttons: [
+      {
+        text: "Yatra List",
+        icon: 'fa-solid fa-gopuram',
+        handler: () => { },
+        link: "/admin/yatra"
+      }
+    ]
+  }
   return (
     <>
+      <Breadcrumb option={breadcrumbOption}></Breadcrumb>
+      <hr />
       <div className='card'>
         <div className='card-header bg-info text-start fs-9'>Add Yatra</div>
         <div className='card-body'>
@@ -184,7 +166,7 @@ export default function AddYatra() {
             <div className='col-sm-12 col-md-6 offset-md-3 text-start'>
               <div className='d-flex justify-content-end my-3'>
                 <ButtonBox onClickHandler={saveYatraHandler} disabled={isSaving} type={yatraModel?.id > 0 ? "update" : "save"} text={yatraModel?.id > 0 ? "Update" : "Save"} className="btn-sm mx-3"></ButtonBox>
-                <ButtonBox onClickHandler={resetTempleHandler} disabled={isSaving} type="cancel" text="Reset Fields" className="btn-sm"></ButtonBox>
+                <ButtonBox onClickHandler={resetYatraHandler} disabled={isSaving} type="cancel" text="Reset Fields" className="btn-sm"></ButtonBox>
               </div>
             </div>
             <Divider></Divider>
@@ -196,12 +178,6 @@ export default function AddYatra() {
               <div className='col-sm-12 col-md-6 offset-md-3 text-start'>
                 <FileUpload disable={isSaving} moduleName={fileUploadModuleName.Yatra} moduleId={yatraModel.id} fileType='image'></FileUpload>
               </div>
-              {/* <div className='col-sm-12 col-md-6 offset-md-3 text-start'>
-                <FormHeader heaterText='Barcode Upload'></FormHeader>
-              </div>
-              <div className='col-sm-12 col-md-6 offset-md-3 text-start'>
-                <FileUpload disable={isSaving} moduleName={fileUploadModuleName.Yatra} moduleId={yatraModel.id} fileType='barcode'></FileUpload>
-              </div> */}
               <div className='col-sm-12 col-md-6 offset-md-3 text-start'>
                 <FormHeader heaterText='Audio Upload'></FormHeader>
               </div>

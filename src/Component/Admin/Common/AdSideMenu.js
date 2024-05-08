@@ -60,15 +60,15 @@ export default function AdSideMenu() {
                                                 </Link>
                                             </li>
                                             <li onClick={e => toggleMenu(e)} className="sidebar-item">
-                                                <Link to="/admin/attraction/type/details" className='sidebar-link'>
-                                                    <i className="fa-solid fa-gopuram"></i>
-                                                    <span className="align-middle">Attraction Type</span>
-                                                </Link>
-                                            </li>
-                                            <li onClick={e => toggleMenu(e)} className="sidebar-item">
                                                 <Link to="/admin/attraction/details" className='sidebar-link'>
                                                     <i className="fa-solid fa-gopuram"></i>
                                                     <span className="align-middle">Attraction</span>
+                                                </Link>
+                                            </li>
+                                            <li onClick={e => toggleMenu(e)} className="sidebar-item">
+                                                <Link to="/admin/yatra/attraction/mapper" className='sidebar-link'>
+                                                    <i className="fa-solid fa-gopuram"></i>
+                                                    <span className="align-middle">Attraction Yatra Mapper</span>
                                                 </Link>
                                             </li>
                                             <li onClick={e => toggleMenu(e)} className="sidebar-item">
@@ -90,15 +90,15 @@ export default function AdSideMenu() {
                                                         </Link>
                                                     </li>
                                                     <li onClick={e => toggleMenu(e)} className="sidebar-item">
-                                                        <Link to="/admin/master/yatra/detail" className='sidebar-link'>
+                                                        <Link to="/admin/attraction/type/details" className='sidebar-link'>
                                                             <i className="fa-solid fa-gopuram"></i>
-                                                            <span className="align-middle">Master | Yatra</span>
+                                                            <span className="align-middle">Master | Attraction Type</span>
                                                         </Link>
                                                     </li>
                                                     <li onClick={e => toggleMenu(e)} className="sidebar-item">
-                                                        <Link to="/admin/master/padav/detail" className='sidebar-link'>
+                                                        <Link to="/admin/master/yatra/detail" className='sidebar-link'>
                                                             <i className="fa-solid fa-gopuram"></i>
-                                                            <span className="align-middle">Master | Padav</span>
+                                                            <span className="align-middle">Master | Yatra</span>
                                                         </Link>
                                                     </li>
                                                     <li onClick={e => toggleMenu(e)} className="sidebar-item">

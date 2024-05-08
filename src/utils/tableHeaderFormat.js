@@ -38,6 +38,11 @@ const headerFormat = {
     { name: "Name", prop: "name" },
     { name: "Code", prop: "code" }
   ],
+  attractionYatraMapper: [
+    { name: "YatraName", prop: "yatraName" },
+    { name: "Attraction Name", prop: "masterAttractionName" },
+    { name: "Display Order", prop: "displayOrder" }
+  ],
   masterDataDetails: [
     { name: "Name (Eng)", prop: "enName" },
     { name: "Name (हिंदी)", prop: "hiName" },

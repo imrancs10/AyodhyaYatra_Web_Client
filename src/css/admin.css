@@ -201,8 +201,6 @@ small {
     border-color: #393939;
 }
 
-.tdWidth {}
-
 .sidebar-nav {
     flex-grow: 1;
     list-style: none;
@@ -756,4 +754,23 @@ a.list-group-item {
 .breadcrumb-item
 {
     padding-bottom: 3px;
+}
+
+
+
+.api-loader
+{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background: black;
+    opacity: 0.6;
+}
+.api-loader .lazy-load-image-background img{
+    position: fixed;
+    top: 25vh;
+    left: 44vw;
+    width: 15vw;
+    height: 55vh;
 }

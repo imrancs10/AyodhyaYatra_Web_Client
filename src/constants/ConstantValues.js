@@ -16,20 +16,8 @@ const toastMessage = {
     emailSent:"Email has been sent!",
     invalidSearchLength:"Search text should be minimum 3 char!"
 };
-const orderStatus={
-    active:{
-        code:"active",
-        value:"Active"
-    },
-    deleted:{
-        code:"deleted",
-        value:"Deleted"
-    },
-    processing:{
-        code:'processing',
-        value:'Processing'
-    }
-
+const defaultQueryParams={
+    paging:"?pageNo=1&PageSize=10000"
 }
 
-export { toastMessage,orderStatus };
+export { toastMessage,defaultQueryParams };

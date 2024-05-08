@@ -12,7 +12,7 @@ export default function DeleteConfirmation({ deleteHandler, dataId, modelId, tit
     cancelButtonText = common.defaultIfEmpty(cancelButtonText, "Cancel");
 
     return (
-        <div id={modelId} className="modal fade" tabIndex="-1" role="dialog" aria-labelledby={modelId + 'Label'}
+        <div id={modelId} className="modal" tabIndex="-1" role="dialog" aria-labelledby={modelId + 'Label'}
             aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
