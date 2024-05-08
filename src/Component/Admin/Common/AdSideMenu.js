@@ -41,7 +41,7 @@ export default function AdSideMenu() {
                                 <div className="simplebar-content-wrapper" tabIndex="0" role="region" aria-label="scrollable content" style={{ height: '100%', overflow: 'hidden scroll' }}>
                                     <div className="simplebar-content" style={{ padding: '0px' }}>
                                         <a className="sidebar-brand" href="index.html">
-                                            <LazyLoadImage effect='blur' src="assets/img/icons/KashiYatraLogo2.png" alt='KashiYatra Logo' style={{ width: '100px', height: 'auto' }} />
+                                            <LazyLoadImage effect='blur' src="uploads/logo.png" alt='KashiYatra Logo' style={{ width: '100px', height: 'auto' }} />
                                         </a>
                                         <ul className="sidebar-nav">
                                             <li className="sidebar-header">

@@ -109,7 +109,7 @@ function App() {
       </Router>
       <ToastContainer></ToastContainer>
       <div className='api-loader' id='api-loader'>
-        <LazyLoadImage effect='blur' src='assets/img/icons/loaderKashi.gif'></LazyLoadImage>
+        <LazyLoadImage effect='blur' src='uploads/logo.png'></LazyLoadImage>
       </div>
     </div>
   );
