@@ -20,114 +20,45 @@ export default function AdDashboard() {
   }, []);
   return (
     <>
-      <div className="container-fluid p-0">
-        <h1 className="h3 mb-3"><strong>Admin</strong> Dashboard</h1>
-        <div className="row">
-          <div className="col-xl-6 col-xxl-5 d-flex">
-            <div className="w-100">
-              <div className="row">
-                <div className="col-sm-6">
-                  <div className="card">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col mt-0">
-                          <h5 className="card-title">No. of Yatra's</h5>
-                        </div>
-
-                        <div className="col-auto">
-                          <div className="stat text-primary">
-                            <i className="align-middle" data-feather="truck"></i>
-                          </div>
-                        </div>
-                      </div>
-                      <h1 className="mt-1 mb-3">{dashboardCount?.yatraCount}</h1>
-                      {/* <div className="mb-0">
-                        <span className="text-danger"> <i className="mdi mdi-arrow-bottom-right"></i>  </span>
-                        <span className="text-muted">Since last week</span>
-                      </div> */}
-                    </div>
-                  </div>
-                  <div className="card">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col mt-0">
-                          <h5 className="card-title">Monthly Visitors</h5>
-                        </div>
-
-                        <div className="col-auto">
-                          <div className="stat text-primary">
-                            <i className="align-middle" data-feather="users"></i>
-                          </div>
-                        </div>
-                      </div>
-                      <h1 className="mt-1 mb-3">14,212</h1>
-                      {/* <div className="mb-0">
-                        <span className="text-success"> <i className="mdi mdi-arrow-bottom-right"></i> </span>
-                        <span className="text-muted">Since last week</span>
-                      </div> */}
-                    </div>
-                  </div>
-                </div>
-                <div className="col-sm-6">
-                  <div className="card">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col mt-0">
-                          <h5 className="card-title">No. of Temples</h5>
-                        </div>
-
-                        <div className="col-auto">
-                          <div className="stat text-primary">
-                            <i className="align-middle" data-feather="activity"></i>
-                          </div>
-                        </div>
-                      </div>
-                      <h1 className="mt-1 mb-3">{dashboardCount?.templeCount}</h1>
-                      {/* <div className="mb-0">
-                        <span className="text-success"> <i className="mdi mdi-arrow-bottom-right"></i>  </span>
-                        <span className="text-muted">Since last week</span>
-                      </div> */}
-                    </div>
-                  </div>
-                  <div className="card">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col mt-0">
-                          <h5 className="card-title">Registrations</h5>
-                        </div>
-
-                        <div className="col-auto">
-                          <div className="stat text-primary">
-                            <i className="align-middle" data-feather="shopping-cart"></i>
-                          </div>
-                        </div>
-                      </div>
-                      <h1 className="mt-1 mb-3">{dashboardCount?.registrationCount}</h1>
-                      {/* <div className="mb-0">
-                        <span className="text-danger"> <i className="mdi mdi-arrow-bottom-right"></i>  </span>
-                        <span className="text-muted">Since last week</span>
-                      </div> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-xl-6 col-xxl-7">
-            <div className="card flex-fill w-100">
-              <div className="card-header">
-
-                <h5 className="card-title mb-0">Recent Movement</h5>
-              </div>
-              <div className="card-body py-3">
-                <div className="chart chart-sm">
-                  <canvas id="chartjs-dashboard-line"></canvas>
-                </div>
-              </div>
+      <h1 className="h3 mb-3 text-center"><strong>Admin</strong> Dashboard</h1>
+      <div class="row">
+        <div class="col-3">
+          <div class="card bg-light mb-3" style={{ maxWidth: "18rem" }}>
+            <div class="card-header text-white bg-primary"><h5 class="card-title">No. of Yatra's</h5></div>
+            <div class="card-body text-center">
+              <h1>{dashboardCount?.yatraCount}</h1>
             </div>
           </div>
         </div>
+        <div class="col-3">
+          <div class="card bg-light mb-3" style={{ maxWidth: "18rem" }}>
+            <div class="card-header text-white bg-warning"><h5 class="card-title">Monthly Visitors</h5></div>
+            <div class="card-body text-center">
+              <h1>{dashboardCount?.monthlyVisitorCounts?.length > 0 ? dashboardCount?.monthlyVisitorCounts[0].count : 0}</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card bg-light mb-3" style={{ maxWidth: "18rem" }}>
+            <div class="card-header text-white bg-info"><h5 class="card-title">Registrations</h5></div>
+            <div class="card-body text-center">
+              <h1>{dashboardCount?.registrationCount}</h1>
+            </div>
+          </div>
+        </div>
+        {dashboardCount?.attractionCounts?.map(res => {
+          return <div class="col-3">
+            <div class="card bg-light mb-3" style={{ maxWidth: "18rem" }}>
+              <div class="card-header text-white bg-success"> <h5 class="card-title">{res?.attractionType}</h5></div>
+              <div class="card-body text-center">
+                <h1>{res?.count}</h1>
+              </div>
+            </div>
+          </div>
+        })}
+
+      </div>
+      <div className="container-fluid p-0">
 
 
 
