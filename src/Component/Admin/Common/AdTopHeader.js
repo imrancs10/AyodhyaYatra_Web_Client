@@ -17,16 +17,13 @@ export default function AdTopHeader({ setCollapse, collapsed, authData }) {
     }
 
     useEffect(() => {
-debugger;
         var storeItem = localStorage.getItem(process.env.REACT_APP_STORAGE_KEY);
-        if (storeItem === undefined || storeItem === null) {
-            nagivate("#/admin/login", { replace: true });
-            return;
+        if (storeItem === undefined || storeItem === null || storeItem==="{}") {
+            nagivate("/admin/login", { replace: true });
         }
         else{
             setLocalAuthData(JSON.parse(storeItem));
         }
-        debugger;
     }, [])
 
     return (

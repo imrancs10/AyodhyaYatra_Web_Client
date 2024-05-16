@@ -34,7 +34,7 @@ export default function DownloadQrCode() {
             .then(res => {
                 setYatraList(res[0].data);
                 setAttractionTypeList(res[1].data?.data);
-                setAttractionList([{ id: 0, enName: "All Attraction" }, ...res[2].data?.data]);
+                setAttractionList([{ id: -1, enName: "All Attraction" }, ...res[2].data?.data]);
             })
     }, []);
 
@@ -76,10 +76,10 @@ export default function DownloadQrCode() {
         content: () => componentRef.current,
     });
     const getPrintAttractionList = () => {
-        if (filterModel.attractionId === -2)
+        if (filterModel.attractionId === -1)
             return attractionList;
         else
-            return attractionList.filter(x => x.id === filterModel.attractionId);
+            return attractionList.filter(x =>x.id === filterModel.attractionId);
     }
     return (
         <>
@@ -102,7 +102,7 @@ export default function DownloadQrCode() {
                         </div>
                         <div className='col-sm-12 col-md-6 offset-md-3 text-start'>
                             <Label text="Attraction" isRequired={true}></Label>
-                            <Dropdown data={attractionList} name="attractionId" addNa={true} value={filterModel.attractionId} elementKey="id" text="enName" defaultText="Select Yatra" onChange={changeHandler} className="form-control-sm" />
+                            <Dropdown data={attractionList} name="attractionId" value={filterModel.attractionId} elementKey="id" text="enName" defaultText="Select Attraction" onChange={changeHandler} className="form-control-sm" />
                             <ErrorLabel message={error?.attractionId} />
                         </div>
                         <div className='col-sm-12 col-md-6 offset-md-3 text-end my-4'>
@@ -111,24 +111,31 @@ export default function DownloadQrCode() {
                     </div>
                 </div>
             </div>
-            <div className='d'>
+            <div className='d-none'>
                 <div className='print-multiple-qr' ref={componentRef}>
                     {
                         getPrintAttractionList()?.map((ele, ind) => {
-                            if (ele?.id === -2)
+                            if (ele?.id === -1)
                                 return
                             else
-                                return <div className='multiple-qr-item' key={ind} >
+                                return <div className='multiple-qr-item' key={ind}  style={{pageBreakAfter: "always",marginTop:"40px"}}>
                                     <div style={{ textAlign: 'center' }}>
-                                        <h6 style={{ color: 'black', textAlign: 'center' }}>Attraction Name : {ele?.enName} - {ele?.hiName}</h6>
+                                        <h4 style={{ color: 'black', textAlign: 'center' }}>Attraction Name : {ele?.enName} {ele?.hiName?"- " +ele?.hiName:""} <br/>{ele?.taName?"- " +ele?.taName:""} {ele?.teName?"- " +ele?.teName:""}</h4>
+                                        <h6 style={{ color: 'black', textAlign: 'center' }}>Attraction Type : {ele?.attractionType}</h6>
                                         <h6 style={{ color: 'black', textAlign: 'center' }}>Attraction ID : {ele?.id}</h6>
-                                        <h6 style={{ color: 'black', textAlign: 'center', marginBottom: '30px' }}>Attraction Attraction : {ele?.sequenceNo}</h6>
+                                        <h6 style={{ color: 'black', textAlign: 'center', marginBottom: '30px' }}>Sequence No : {ele?.sequenceNo}</h6>
+                                        <div className='qr-container'>
                                         <QRCode
                                             id="attractionQrCode"
                                             value={`${window.location.origin}/#/QrLanding?type=attraction&id=${ele?.id}`}
                                             title={ele?.enName}
                                             style={{ height: 600, maxWidth: "100%", width: "100%" }}
                                         />
+                                        </div>
+                                        <h6 style={{ color: 'black', textAlign: 'center', marginTop: '30px' }}>English : Scan this QR Code to know more about {ele?.enName}</h6>
+                                        <h6 style={{ color: 'black', textAlign: 'center'}}>HIndi : {ele?.hiName} के बारे में अधिक जानने के लिए इस QR कोड को स्कैन करें</h6>
+                                        <h6 style={{ color: 'black', textAlign: 'center'}}>Tamil:  {ele?.taName} பற்றி மேலும் அறிய இந்த QR குறியீட்டை ஸ்கேன் செய்யவும்</h6>
+                                        <h6 style={{ color: 'black', textAlign: 'center'}}>Telugu:  {ele?.teName} గురించి మరింత తెలుసుకోవడానికి ఈ QR కోడ్‌ని స్కాన్ చేయండి</h6>
                                     </div>
                                 </div>
                         })
