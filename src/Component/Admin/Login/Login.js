@@ -92,7 +92,7 @@ export default function Login({setAuthData}) {
         return err;
     }
     return (
-        <div style={{ backgroundImage: 'url(https://www.outlookindia.com/outlooktraveller/public/uploads/articles/travelnews/kashi_vishwanath_temple.jpg)' }}>
+        <div style={{ backgroundImage: 'url(/ayobanner.png)' }}>
             <main className="d-flex w-100">
                 <div className="container d-flex flex-column">
                     <div className="row vh-100">
@@ -106,11 +106,11 @@ export default function Login({setAuthData}) {
                                         Sign in to your account to continue
                                     </p>
                                 </div>
-                                <div className="card">
-                                    <div className="card-body">
+                                <div className="card"  style={{border: "1px solid rgba(255, 255, 255, 0.3)",backdropFilter: "blur(5px)",boxShadow:"0 4px 30px rgba(0, 0, 0, 0.1)", background:"rgba(255, 255, 255, 0.2)", borderRadius:"16px",}}>
+                                    <div className="card-body" style={{border: "1px solid rgba(255, 255, 255, 0.3)",backdropFilter: "blur(5px)",boxShadow:"0 4px 30px rgba(0, 0, 0, 0.1)", background:"rgba(255, 255, 255, 0.2)", borderRadius:"16px",}}>
                                         <div className="m-sm-4">
                                             <div className="text-center">
-                                                <LazyLoadImage effect='blur' src="/assets/img/icons/KashiYatraLogo1.png" alt="Kashi Yatra"
+                                                <LazyLoadImage effect='blur' src="/Logo512.png" alt="Ayodhya Yatra"
                                                     className="img-fluid" width="132" height="132" />
                                             </div>
                                             <div>
