@@ -775,3 +775,9 @@ a.list-group-item {
     width: 14vw;
     height: 28vh;
 }
+
+.dropdown-toggle::after
+{
+    top: 16px;
+    position: relative;
+}
