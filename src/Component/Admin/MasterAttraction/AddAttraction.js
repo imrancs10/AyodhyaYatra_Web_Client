@@ -66,9 +66,8 @@ export default function AddAttraction() {
     if (attractionModel.id === 0) {
       Api.Put(apiUrls.masterAttractionsController.AddAttraction, attractionModel)
         .then(res => {
-          setIsSaving(false);
-          debugger;
           if (res.data?.id > 0) {
+            setIsSaving(false);
             toast.success(toastMessage.saveSuccess);
             setAttractionModel({ ...res.data });
           }
@@ -82,8 +81,6 @@ export default function AddAttraction() {
     else {
       Api.Post(apiUrls.masterAttractionsController.updateAttraction, attractionModel)
         .then(res => {
-          debugger;
-          setIsSaving(false);
           if (res.data?.id > 0) {
             toast.success(toastMessage.updateSuccess);
             setIsSaving(false)
@@ -92,7 +89,7 @@ export default function AddAttraction() {
             toast.warn(toastMessage.updateError);
         }).catch(err => {
           setIsSaving(false);
-        });;
+        });
     }
   }
 
@@ -103,13 +100,14 @@ export default function AddAttraction() {
       Api.Get(apiUrls.masterAttractionsController.getAttractionById + `/${id}`)
         .then(res => {
           setAttractionModel({ ...res.data });
-          setIsSaving(true);
+          setIsSaving(false);
         });
     }
   }, [editAttractionId]);
 
   useEffect(() => {
     if (attractionModel?.id > 0) {
+      setIsSaving(false);
       Api.Get(apiUrls.masterAttractionsController.getAttractionById + `/${attractionModel.id}`)
         .then(res => {
           var modal = attractionModel;
@@ -126,7 +124,7 @@ export default function AddAttraction() {
     Api.Get(apiUrls.masterAttractionsController.getAllAttractionTypes + '?pageNo=1&pageSize=10000')
       .then(res => {
         setAttractionTypeList(res.data.data);
-      })
+      });
   }, [])
 
 
@@ -323,17 +321,6 @@ export default function AddAttraction() {
                 <FormHeader heaterText='QR Code'></FormHeader>
               </div>
               <div className='col-sm-12 col-md-6 offset-md-3 text-start'>
-                {/* <div style={{ background: 'white', padding: '16px', width: '100%', textAlign: 'center' }} >
-                  <h6 style={{ color: 'black', textAlign: 'center' }}>Attraction Name : {attractionModel.enName} - {attractionModel.hiName}</h6>
-                  <h6 style={{ color: 'black', textAlign: 'center' }}>Attraction ID : {attractionModel.id}</h6>
-                  <h6 style={{ color: 'black', textAlign: 'center' }}>Attraction Sequence : {attractionModel.sequenceNo}</h6>
-                  <QRCode
-                    id="attractionQrCode"
-                    value={`${window.location.origin}/#/QrLanding?type=attraction&id=${attractionModel.id}`}
-                    title={attractionModel.enName}
-                  />
-
-                </div> */}
 
                 <div className='multiple-qr-item' style={{pageBreakAfter: "always",marginTop:"40px"}} ref={componentRef}>
                                     <div style={{ textAlign: 'center' }}>
