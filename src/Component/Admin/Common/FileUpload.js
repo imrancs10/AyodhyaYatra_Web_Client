@@ -162,7 +162,7 @@ export default function FileUpload({
     const uploadFiles = () => {
         if (!selectedFileList || selectedFileList?.length === 0)
             return;
-        let url = apiUrls.fileUploadController.uploadFiles + `?ModuleId=${moduleId}&ModuleName=${moduleName}&CreateThumbnail=true&Remark=t${imageRemark}&SequenceNo=0&imageType=${fileType}`
+        let url = apiUrls.fileUploadController.uploadFiles + `?ModuleId=${moduleId}&ModuleName=${moduleName}&CreateThumbnail=true&Remark=t${imageRemark}&SequenceNo=0&fileType=${fileType}`
         setIsUploading(true);
         let data = new FormData();
         for (let index = 0; index < selectedFileList?.length; index++) {
@@ -173,7 +173,7 @@ export default function FileUpload({
             .then(res => {
                 setIsUploading(false);
                 if (res?.data[0]?.id > 0) {
-                    setImages([...mapServerImageUrl(res.data)]);
+                    //setImages([...mapServerImageUrl(res.data)]);
                     toast.success(toastMessage.fileUploadSuccess);
                 }
                 else {

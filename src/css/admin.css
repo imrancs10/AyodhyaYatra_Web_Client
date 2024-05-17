@@ -69,6 +69,7 @@
 
 .file-upload-container .bd-highlight .close {
     position: relative;
+    z-index: 100;
 }
 
 .file-upload-container .bd-highlight .close i {
@@ -780,12 +781,4 @@ a.list-group-item {
 {
     top: 16px;
     position: relative;
-}
-
-.qr-container{
-    
-}
-
-.yt{
-    
 }
