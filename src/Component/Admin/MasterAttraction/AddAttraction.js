@@ -201,6 +201,12 @@ export default function AddAttraction() {
     ],
     buttons: [
       {
+        text: "Back",
+        icon: 'fa-solid fa-arrow-left',
+        handler: () => { },
+        link: "/admin/attraction/details"
+      },
+      {
         text: "Add Attraction",
         icon: 'fa-solid fa-gopuram',
         handler: () => { },
@@ -331,7 +337,7 @@ export default function AddAttraction() {
                                         <div className='qr-container'>
                                         <QRCode
                                             id="attractionQrCode"
-                                            value={`${window.location.origin}/#/QrLanding?type=attraction&id=${attractionModel?.id}`}
+                                            value={`${process.env.REACT_APP_PUBLIC_SITE_BASE_URL}/QrLanding?type=attraction&id=${attractionModel?.id}`}
                                             title={attractionModel?.enName}
                                             style={{ height: 600, maxWidth: "100%", width: "100%" }}
                                         />

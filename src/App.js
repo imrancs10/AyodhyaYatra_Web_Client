@@ -9,7 +9,7 @@ import AddYatra from './Component/Admin/MasterData/Yatra/AddYatra';
 import Login from './Component/Admin/Login/Login';
 import { useEffect, useState } from 'react';
 import jwtDecode from 'jwt-decode';
-import { Navigate } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 import Register from './Component/Admin/Login/Register';
 import MasterDataDetails from './Component/Admin/MasterData/MasterDataDetails';
 import AddMasterData from './Component/Admin/MasterData/AddMasterData';
@@ -57,13 +57,13 @@ function App() {
       var token = storaData?.accessToken;
       var decodedToken = jwtDecode(token);
       if (decodedToken?.exp === undefined || new Date() > new Date(decodedToken?.exp * 1000)) {
-        <Navigate to="/admin/login" replace={true}></Navigate>
+        redirect("/admin/login");
         return;
       }
       setAuthData({ ...storaData });
     } catch (error) {
       console.log("invalid token", error);
-      <Navigate to="/admin/login" replace={true}></Navigate>
+      redirect("/admin/login");
     }
   }
 

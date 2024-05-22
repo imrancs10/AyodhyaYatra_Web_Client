@@ -28,6 +28,7 @@ export default function AttractionYatraMapper() {
             .then(res => {
                 if (res.data > 0) {
                     toast.success(toastMessage.deleteSuccess);
+                    handleSearch('all')
                 }
                 else toast.warn(toastMessage.deleteError);
             });

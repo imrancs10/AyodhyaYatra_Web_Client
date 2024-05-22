@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { common } from '../../../utils/common';
 
 export default function Login({setAuthData}) {
     const authContext=createContext()
@@ -30,6 +31,9 @@ export default function Login({setAuthData}) {
         }
         try {
           var storaData = localStorage.getItem(process.env.REACT_APP_STORAGE_KEY) ?? JSON.stringify(data);
+          if(common.defaultIfEmpty(storaData,true)){
+            nagivate("/admin/login", {replace:true})
+          }
           storaData = storaData.replace("\"{", "'{").replace("}\"", "}'")
           storaData = JSON.parse(storaData);
           var token = storaData?.accessToken;
