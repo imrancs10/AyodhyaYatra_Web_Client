@@ -96,7 +96,7 @@ export default function Login({setAuthData}) {
         return err;
     }
     return (
-        <div style={{ backgroundImage: 'url(/ayobanner.png)' }}>
+        <div style={{ backgroundImage: 'url(/ayobanner.jpg)',backgroundSize:"cover" }}>
             <main className="d-flex w-100">
                 <div className="container d-flex flex-column">
                     <div className="row vh-100">
@@ -104,9 +104,9 @@ export default function Login({setAuthData}) {
                             <div className="d-table-cell align-middle">
                                 <div className="text-center mt-4" style={{ color: 'aliceblue' }}>
                                     <h1 className="h2"
-                                        style={{ color: 'beige', fontFamily: "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" }}>
+                                        style={{ color: 'black', fontFamily: "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" }}>
                                         Welcome back</h1>
-                                    <p className="lead">
+                                    <p className="lead" style={{color:'black'}}>
                                         Sign in to your account to continue
                                     </p>
                                 </div>
