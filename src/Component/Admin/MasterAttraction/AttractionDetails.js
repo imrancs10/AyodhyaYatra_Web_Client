@@ -33,7 +33,7 @@ export default function TempleDetails() {
 
   const handleSearch = (searchTerm) => {
 
-    Api.Get(apiUrls.templeController.searchTemple + `?pageNo=${pageNo}&pageSize=${pageSize}&searchTerm=${searchTerm}`)
+    Api.Get(apiUrls.masterAttractionsController.searchAttraction + `?pageNo=${pageNo}&pageSize=${pageSize}&searchTerm=${searchTerm}`)
       .then(res => {
         tableOptionTemplet.data = res.data.data;
         tableOptionTemplet.totalRecords = res.data.totalCount;

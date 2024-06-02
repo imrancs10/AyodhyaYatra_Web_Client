@@ -7,6 +7,7 @@ import { Api } from '../../../../apis/Api'
 import { apiUrls } from '../../../../apis/ApiUrls'
 import Breadcrumb from '../../Common/Breadcrumb'
 import TableView from '../../tables/TableView'
+import { common } from '../../../../utils/common'
 
 export default function AttractionYatraMapper() {
     const [pageNo, setPageNo] = useState(1);
@@ -14,7 +15,7 @@ export default function AttractionYatraMapper() {
     let navigate = useNavigate();
 
     const handleSearch = (searchTerm) => {
-
+searchTerm=common.defaultIfEmpty(searchTerm,"all")
         Api.Get(apiUrls.attractionYatraMapperController.search + `?pageNo=${pageNo}&pageSize=${pageSize}&searchTerm=${searchTerm}`)
             .then(res => {
                 tableOptionTemplet.data = res.data.data;

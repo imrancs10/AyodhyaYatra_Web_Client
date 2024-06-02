@@ -768,6 +768,7 @@ a.list-group-item {
     background: black;
     opacity: 0.6;
     z-index: 10000000000000000;
+    display: none;
 }
 .api-loader .lazy-load-image-background img{
     position: fixed;

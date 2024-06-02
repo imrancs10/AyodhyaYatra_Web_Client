@@ -2,10 +2,14 @@ import React, { useEffect, useState, useRef } from 'react'
 import { Api } from '../../apis/Api';
 import { apiUrls } from '../../apis/ApiUrls';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { headerFormat } from '../../utils/tableHeaderFormat';
+import TableView from './tables/TableView';
 
 export default function AdDashboard() {
   const [feedbackDetails, setFeedbackDetails] = useState({});
   const [dashboardCount, setDashboardCount] = useState({});
+  const [pageNo, setPageNo] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
   useEffect(() => {
     Api.Get(apiUrls.feedbackController.getFeedback)
       .then(res => {
@@ -18,6 +22,26 @@ export default function AdDashboard() {
         setDashboardCount(res.data);
       });
   }, []);
+  const tableOptionTemplet = {
+    headers: headerFormat.visitorDetails,
+    data: [],
+    totalRecords: 0,
+    pageSize: pageSize,
+    pageNo: pageNo,
+    setPageNo: setPageNo,
+    setPageSize: setPageSize,
+    showTableTop: false,
+    showAction: false
+  }
+  const [tableOption, setTableOption] = useState(tableOptionTemplet);
+  useEffect(() => {
+    Api.Get(apiUrls.visitorContrller.getVisitor + `?pageNo=${pageNo}&pageSize=${pageSize}`)
+      .then(res => {
+        tableOptionTemplet.data = res.data;
+        tableOptionTemplet.totalRecords = res.data?.length;
+        setTableOption({ ...tableOptionTemplet });
+      });
+  }, [pageNo, pageSize])
   return (
     <>
       <h1 className="h3 mb-3 text-center"><strong>Admin</strong> Dashboard</h1>
@@ -59,54 +83,11 @@ export default function AdDashboard() {
 
       </div>
       <div className="container-fluid p-0">
-
-
-
         <div className="row">
-          <div className="col-12 col-lg-8 col-xxl-9 d-flex">
-            <div className="card flex-fill">
-              <div className="card-header">
-
-                <h5 className="card-title mb-0">Latest Feedback</h5>
-              </div>
-              <table className="table table-hover my-0">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th className="d-none d-xl-table-cell">Email Id</th>
-                    <th className="d-none d-xl-table-cell">Contact Number</th>
-                    <th className="d-none d-xl-table-cell">Address</th>
-                    <th className="d-none d-md-table-cell">Comment</th>
-                    <th className="d-none d-md-table-cell">Created At</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {feedbackDetails?.length > 0 && feedbackDetails?.map((res, index) => {
-                    return <tr>
-                      <td>{res?.name}</td>
-                      <td className="d-none d-xl-table-cell">{res?.emailId}</td>
-                      <td className='d-none d-xl-table-cell'>{res?.contactNumber}</td>
-                      <td className="d-none d-md-table-cell">{res?.address}</td>
-                      <td className="d-none d-md-table-cell">{res?.feedbackComment}</td>
-                      <td className="d-none d-md-table-cell">{res?.createdAt}</td>
-                    </tr>
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div className="col-12 col-lg-4 col-xxl-3 d-flex">
-            <div className="card flex-fill w-100">
-              <div className="card-header">
-
-                <h5 className="card-title mb-0">Monthly Visitors</h5>
-              </div>
-              <div className="card-body d-flex w-100">
-                <div className="align-self-center chart chart-lg">
-                  <canvas id="chartjs-dashboard-bar"></canvas>
-                </div>
-              </div>
-            </div>
+          <div style={{background:"white"}} className="col-12">
+            <h5 className="card-title mb-0">Visitors</h5>
+            <hr />
+            <TableView option={tableOption} />
           </div>
         </div>
 

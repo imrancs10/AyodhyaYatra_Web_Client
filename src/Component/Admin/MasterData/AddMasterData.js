@@ -15,6 +15,7 @@ import { validationMessage } from '../../../constants/validationMessage'
 import { fileUploadModuleName } from '../../../constants/enums';
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { common } from '../../../utils/common'
+import Breadcrumb from '../Common/Breadcrumb'
 
 export default function AddMasterData() {
   let navigate = useNavigate();
@@ -133,8 +134,29 @@ export default function AddMasterData() {
     var data = common.masterDataTypes.find(x => x.id === masterDataModel.masterDataType);
     return data === undefined ? "" : data.value;
   }
+
+  const breadcrumbOption = {
+    title: 'Master Data',
+    items: [
+      {
+        isActive: false,
+        title: "Master Data Details",
+        icon: "fa-solid fa-gopuram"
+      }
+    ],
+    buttons: [
+      {
+        text: "Master Data Details",
+        icon: 'fa-solid fa-gopuram',
+        handler: () => { },
+        link: "/admin/master/data/detail"
+      }
+    ]
+  }
   return (
     <>
+     <Breadcrumb option={breadcrumbOption}></Breadcrumb>
+     <hr></hr>
       <div className='card'>
         <div className='card-header bg-info text-start fs-9'>Add master data</div>
         <div className='card-body'>

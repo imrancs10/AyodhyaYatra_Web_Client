@@ -1,4 +1,5 @@
 const renderImage = (row, header) => {
+  debugger;
   let images = row?.images ?? [];
   images = images.find(x => x.fileType?.toLowerCase() === "image");
   if (images === undefined)
@@ -16,9 +17,9 @@ const renderFiles = (row, header) => {
 }
 
 const redirectURL = (row, header) => {
-  let Url = row?.temple360DegreeVideoURL ?? '';
+  let Url = row?.video360URL ?? '';
   if (Url != '')
-    return <a target="_blank" src={Url} title={Url}>{Url}</a>
+    return <a target="_blank" style={{color:"black",cursor:"pointer"}} href={Url} title={Url}>{Url}</a>
   else
     return '';
 }
@@ -30,14 +31,22 @@ const headerFormat = {
     { name: "Lat.", prop: "latitude" },
     { name: "Long.", prop: "longitude" },
     { name: "Type", prop: "attractionType" },
-    { name: "Description (Eng)", prop: "enDescription",customColumn:(data)=>{return data?.enDescription.substr(0,100)+"...."}, action: { dAlign: "start" } },
-    { name: "Description (हिंदी)", prop: "hiDescription",customColumn:(data)=>{return data?.hiDescription.substr(0,100)+"...."},  action: { dAlign: "start" } },
-    { name: "360 Degree Video URL", prop: "video360URL", customColumn: redirectURL },
+    { name: "Description (Eng)", prop: "enDescription", customColumn: (data) => { return data?.enDescription.substr(0, 100) + "...." }, action: { dAlign: "start" } },
+    { name: "Description (हिंदी)", prop: "hiDescription", customColumn: (data) => { return data?.hiDescription.substr(0, 100) + "...." }, action: { dAlign: "start" } },
+    { name: "360 Degree Video URL", prop: "video360URL" ,customColumn:redirectURL },
     { name: "Images", prop: "Images", customColumn: renderImage }
   ],
   attractionTypeDetails: [
     { name: "Name", prop: "name" },
     { name: "Code", prop: "code" }
+  ],
+  visitorDetails: [
+    { name: "Name", prop: "name" },
+    { name: "Mobile", prop: "mobile" },
+    { name: "Document Type", prop: "documentType" },
+    { name: "Document Number", prop: "documentNumber" },
+    { name: "Registration Date", prop: "registrationDate" }, 
+    { name: "Address", prop: "address" },
   ],
   attractionYatraMapper: [
     { name: "YatraName", prop: "yatraName" },
@@ -49,8 +58,20 @@ const headerFormat = {
     { name: "Name (हिंदी)", prop: "hiName" },
     { name: "Lat.", prop: "latitude" },
     { name: "Long.", prop: "longitude" },
-    { name: "Description (Eng)", prop: "enDescription", action: { dAlign: "start" } },
-    { name: "Description (हिंदी)", prop: "hiDescription", action: { dAlign: "start" } },
+    {
+      name: "Description (Eng)", prop: "enDescription", customColumn: (data) => {
+        if (data?.enDescription?.length > 40)
+          return data?.enDescription.substr(0, 40) + " ..."
+        else
+          return data?.enDescription;
+      }, action: { dAlign: "start" }
+    },
+    { name: "Description (हिंदी)", prop: "hiDescription", customColumn: (data) => {
+      if (data?.hiDescription?.length > 40)
+        return data?.hiDescription.substr(0, 40) + " ..."
+      else
+        return data?.hiDescription;
+    }, action: { dAlign: "start" } },
     { name: "Images", prop: "Images", customColumn: renderImage },
   ],
   YatraDetails: [
