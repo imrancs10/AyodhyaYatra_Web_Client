@@ -24,6 +24,9 @@ export default function AddAttractionType() {
     const attractionTypeId = searchParams.get("Id");
     const attractionTypeTemplate = {
         name: "",
+        hiName: "",
+        teName: "",
+        taName: "",
         code: "",
         id: 0
     };
@@ -126,7 +129,16 @@ export default function AddAttractionType() {
                             <div className='card-body'>
                                 <div className='row'>
                                     <div className='col-12'>
-                                        <Inputbox errorMessage={error?.name} labelText="Name" isRequired={true} name="name" value={attractionTypeModel.name} placeholder="Please enter name" onChangeHandler={changeHandler} className="form-control-sm" />
+                                        <Inputbox errorMessage={error?.name} labelText="Eng. Name" isRequired={true} name="name" value={attractionTypeModel.name} placeholder="Please enter name" onChangeHandler={changeHandler} className="form-control-sm" />
+                                    </div>
+                                    <div className='col-12'>
+                                        <Inputbox  labelText="Hindi Name" isRequired={true} name="hiName" value={attractionTypeModel.hiName} placeholder="Please enter name in hindi" onChangeHandler={changeHandler} className="form-control-sm" />
+                                    </div>
+                                    <div className='col-12'>
+                                        <Inputbox  labelText="Tamil Name" isRequired={true} name="taName" value={attractionTypeModel.teName} placeholder="Please enter name in tamil " onChangeHandler={changeHandler} className="form-control-sm" />
+                                    </div>
+                                    <div className='col-12'>
+                                        <Inputbox  labelText="Telugu Name" isRequired={true} name="teName" value={attractionTypeModel.taName} placeholder="Please enter name tegulu" onChangeHandler={changeHandler} className="form-control-sm" />
                                     </div>
                                     <div className='col-12'>
                                         <Inputbox errorMessage={error?.code} labelText="Code" isRequired={true} name="code" value={attractionTypeModel.code} placeholder="Please enter code" onChangeHandler={changeHandler} className="form-control-sm" />
