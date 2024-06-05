@@ -103,18 +103,15 @@ export default function Login({setAuthData}) {
                         <div className="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
                             <div className="d-table-cell align-middle">
                                 <div className="text-center mt-4" style={{ color: 'aliceblue' }}>
-                                    <h1 className="h2"
-                                        style={{ color: 'black', fontFamily: "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" }}>
-                                        Welcome back</h1>
-                                    <p className="lead" style={{color:'black'}}>
-                                        Sign in to your account to continue
-                                    </p>
+                                    <h2 style={{color:'black'}}>
+                                        Employee Login
+                                    </h2>
                                 </div>
                                 <div className="card"  style={{border: "1px solid rgba(255, 255, 255, 0.3)",backdropFilter: "blur(5px)",boxShadow:"0 4px 30px rgba(0, 0, 0, 0.1)", background:"rgba(255, 255, 255, 0.2)", borderRadius:"16px",}}>
                                     <div className="card-body" style={{border: "1px solid rgba(255, 255, 255, 0.3)",backdropFilter: "blur(5px)",boxShadow:"0 4px 30px rgba(0, 0, 0, 0.1)", background:"rgba(255, 255, 255, 0.2)", borderRadius:"16px",}}>
                                         <div className="m-sm-4">
                                             <div className="text-center">
-                                                <LazyLoadImage effect='blur' src="/Logo512.png" alt="Ayodhya Yatra"
+                                                <LazyLoadImage effect='blur' src="/uploads/Logo.png" alt="Ayodhya Yatra"
                                                     className="img-fluid" width="132" height="132" />
                                             </div>
                                             <div>
@@ -129,7 +126,7 @@ export default function Login({setAuthData}) {
                                                 </div>
                                                 <div className='text-start'>
                                                     <label className="form-check">
-                                                        <input className="form-check-input" onChange={e=>{textChangeHandler(e)}} type="checkbox" value="remember-me"
+                                                        <input className="form-check-input" style={{border: '1px solid', width: '15px', height: '15px',marginRight: '10px'}}  onChange={e=>{textChangeHandler(e)}} type="checkbox" value="remember-me"
                                                             name="rememberMe" checked={loginModel.rememberMe} />
                                                         <span className="form-check-label">
                                                             Remember me next time
