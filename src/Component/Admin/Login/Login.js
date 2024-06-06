@@ -96,7 +96,7 @@ export default function Login({setAuthData}) {
         return err;
     }
     return (
-        <div style={{ backgroundImage: 'url(/ayobanner.jpg)',backgroundSize:"cover" }}>
+        <div style={{ backgroundImage: 'url(/ayodhyabanner.jpg)',backgroundSize:"cover" }}>
             <main className="d-flex w-100">
                 <div className="container d-flex flex-column">
                     <div className="row vh-100">

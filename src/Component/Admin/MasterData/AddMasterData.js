@@ -100,7 +100,7 @@ export default function AddMasterData() {
 
   useEffect(() => {
     if (masterDataModel?.id > 0) {
-      Api.Get(apiUrls.masterDataController.getMasterDataById + `/${masterDataModel.id}`)
+      Api.Get(apiUrls.masterDataController.getMasterDataById + `${masterDataModel.id}`)
         .then(res => {
           var modal = masterDataModel;
           modal = res.data;
