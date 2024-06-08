@@ -127,7 +127,7 @@ export default function DownloadQrCode() {
                                         <div className='qr-container'>
                                         <QRCode
                                             id="attractionQrCode"
-                                            value={`${process.env.REACT_APP_PUBLIC_SITE_BASE_URL}/QrLanding?type=attraction&id=${ele?.id}`}
+                                            value={`${process.env.REACT_APP_PUBLIC_SITE_BASE_URL}Home/QrLanding?type=attraction&id=${ele?.id}`}
                                             title={ele?.enName}
                                             style={{ height: 600, maxWidth: "100%", width: "100%" }}
                                         />
