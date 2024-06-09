@@ -101,12 +101,7 @@ export default function Login({setAuthData}) {
                 <div className="container d-flex flex-column">
                     <div className="row vh-100">
                         <div className="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
-                            <div className="d-table-cell align-middle">
-                                <div className="text-center mt-4" style={{ color: 'aliceblue' }}>
-                                    <h2 style={{color:'black'}}>
-                                        Employee Login
-                                    </h2>
-                                </div>
+                            <div className="d-table-cell align-middle">                               
                                 <div className="card"  style={{border: "1px solid rgba(255, 255, 255, 0.3)",backdropFilter: "blur(5px)",boxShadow:"0 4px 30px rgba(0, 0, 0, 0.1)", background:"rgba(255, 255, 255, 0.2)", borderRadius:"16px",}}>
                                     <div className="card-body" style={{border: "1px solid rgba(255, 255, 255, 0.3)",backdropFilter: "blur(5px)",boxShadow:"0 4px 30px rgba(0, 0, 0, 0.1)", background:"rgba(255, 255, 255, 0.2)", borderRadius:"16px",}}>
                                         <div className="m-sm-4">
