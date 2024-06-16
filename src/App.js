@@ -35,6 +35,8 @@ import AddAttraction from './Component/Admin/MasterAttraction/AddAttraction';
 import AddAttractionType from './Component/Admin/MasterAttraction/AddAttractionType';
 import AttractionYatraMapper from './Component/Admin/MasterData/Yatra/AttractionYatraMapper';
 import AddAtractionYatraMapper from './Component/Admin/MasterData/Yatra/AddAtractionYatraMapper';
+import CharityDetails from './Component/Admin/Charity/CharityDetails';
+import AddCharity from './Component/Admin/Charity/AddCharity';
 
 function App() {
   const [authData, setAuthData] = useState({});
@@ -98,6 +100,8 @@ function App() {
             <Route path="/admin/master/360DegreeGallery/detail" element={<ThreeSixtyDegreeGalleryDetails />} />
             <Route path="/admin/master/360DegreeGallery/add" element={<AddThreeSixtyDegreeGallery />} />
             <Route path="/admin/download/qr" element={<DownloadQrCode />} />
+            <Route path="/admin/charity/details" element={<CharityDetails />} />
+            <Route path="/admin/charity/add" element={<AddCharity />} />
             <Route path="/admin/attraction/type/add" element={<AddAttractionType />} />
             <Route path='/admin/yatra/attraction/mapper' element={<AttractionYatraMapper />} />
             <Route path='/admin/yatra/attraction/mapper/add' element={<AddAtractionYatraMapper />} />

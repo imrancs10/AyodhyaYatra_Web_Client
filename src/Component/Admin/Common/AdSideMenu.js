@@ -77,6 +77,12 @@ export default function AdSideMenu() {
                                                     <span className="align-middle">Feedback</span>
                                                 </Link>
                                             </li>
+                                            <li onClick={e => toggleMenu(e)} className="sidebar-item">
+                                                <Link to="/admin/charity/details" className='sidebar-link'>
+                                                    <i className="fa-solid fa-gopuram"></i>
+                                                    <span className="align-middle">Charity</span>
+                                                </Link>
+                                            </li>
                                             <li onClick={e => toggleMenu(e)} className="sidebar-item has-sub">
                                                 <Link to="#" className='sidebar-link'>
                                                     <i className="fa-solid fa-gopuram"></i>
