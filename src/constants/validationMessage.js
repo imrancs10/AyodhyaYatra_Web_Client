@@ -2,6 +2,14 @@ const validationMessage = {
     reqAttractionSelect:"Please select attraction",
     reqAttractionNameEn:"Please enter attraction name in English",
     reqYatraName:"Please select/enter yatra name",
+
+    reqCharityName:"Please enter charity name",
+    reqCharityType:"Please select charity type",
+    reqCharityPurpose:"Please select charity purpose",
+
+    reqCharityEmail:"Please enter charity email",
+    reqCharityMobile:"Please enter charity mobile",
+
     reqPadavName:"Please select/enter padav name",
     reqSequenceNumber:"Please enter sequence number",
     enReqMasterAttractionTypeId:"Please select attraction type",

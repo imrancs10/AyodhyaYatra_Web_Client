@@ -35,7 +35,7 @@ export default function CharityDetails() {let navigate = useNavigate();
   
     }
     const handleDelete = (id) => {
-      Api.Delete(apiUrls.newsUpdateController.deleteNewsUpdate + `?id=${id}`)
+      Api.Delete(apiUrls.charityController.deleteCharity + `?id=${id}`)
         .then(res => {
           if (res.data > 0) {
             toast.success(toastMessage.deleteSuccess);
@@ -46,7 +46,7 @@ export default function CharityDetails() {let navigate = useNavigate();
     }
   
     const tableOptionTemplet = {
-      headers: headerFormat.NewsUpdateDetails,
+      headers: headerFormat.charityDetails,
       data: [],
       totalRecords: 0,
       pageSize: pageSize,
@@ -57,7 +57,7 @@ export default function CharityDetails() {let navigate = useNavigate();
       actions: {
         view: {
           handler: (id) => {
-            navigate("/admin/master/newsupdate/add?newsUpdateId=" + id);
+            navigate("/admin/charity/add?id=" + id);
           }
         },
         popupModelId: "",
@@ -68,9 +68,9 @@ export default function CharityDetails() {let navigate = useNavigate();
       }
     }
     useEffect(() => {
-      Api.Get(apiUrls.newsUpdateController.getNewsUpdate + `?pageNo=${pageNo}&pageSize=${pageSize}`)
+      Api.Get(apiUrls.charityController.getAllCharity + `?pageNo=${pageNo}&pageSize=${pageSize}`)
         .then(res => {
-          tableOptionTemplet.data = res.data;
+          tableOptionTemplet.data = res.data.data;
           tableOptionTemplet.totalRecords = res.data.length;
           setTableOption({ ...tableOptionTemplet });
         });

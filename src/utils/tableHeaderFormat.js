@@ -100,6 +100,14 @@ const headerFormat = {
     { name: "Web Url", prop: "webUrl" },
     { name: "Images", prop: "Images", customColumn: renderImage },
   ],
+  charityDetails: [
+    { name: "Name", prop: "charityName" },
+    { name: "Charity Type", prop: "charityType" },
+    { name: "Charity Purpose", prop: "charityPurpose" },
+    { name: "Email", prop: "email" },
+    { name: "Mobile", prop: "mobile" },
+    { name: "Address", prop: "address" }
+  ],
   PhotoAlbumDetails: [
     { name: "Name (Eng)", prop: "enName" },
     { name: "Name (हिंदी)", prop: "hiName" },

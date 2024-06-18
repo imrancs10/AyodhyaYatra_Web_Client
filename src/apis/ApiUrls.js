@@ -118,5 +118,18 @@ export const apiUrls = {
     },
     visitorContrller:{
         getVisitor:`${apiPrfix}/visitors/get/`,
+    },
+    charityController:{
+        addCharity:`${apiPrfix}/charity`,
+        getAllCharity:`${apiPrfix}/charity`,
+        getCharityById:`${apiPrfix}/charity/get/by/id/`,
+        updateCharity:`${apiPrfix}/charity`,
+        deleteCharity:`${apiPrfix}/charity`,
+
+        addCharityMaster:`${apiPrfix}/charity/master`,
+        getAllCharityMaster:`${apiPrfix}/charity/master`,
+        getCharityMasterById:`${apiPrfix}/charity/master/get/by/id/`,
+        updateCharityMaster:`${apiPrfix}/charity/master`,
+        deleteCharityMaster:`${apiPrfix}/charity/master`,
     }
 }

@@ -47,15 +47,15 @@ export default function AdDashboard() {
       <h1 className="h3 mb-3 text-center"><strong>Admin</strong> Dashboard</h1>
       <div class="row">
         <div class="col-3">
-          <div class="card bg-light mb-3" style={{ maxWidth: "18rem" }}>
+          <div class="card bg-light mb-3">
             <div class="card-header text-white bg-primary"><h5 class="card-title">No. of Yatra's</h5></div>
             <div class="card-body text-center">
-              <h1>{dashboardCount?.yatraCount}</h1>
+              <h1>{dashboardCount?.yatraCount??0}</h1>
             </div>
           </div>
         </div>
         <div class="col-3">
-          <div class="card bg-light mb-3" style={{ maxWidth: "18rem" }}>
+          <div class="card bg-light mb-3">
             <div class="card-header text-white bg-warning"><h5 class="card-title">Monthly Visitors</h5></div>
             <div class="card-body text-center">
               <h1>{dashboardCount?.monthlyVisitorCounts?.length > 0 ? dashboardCount?.monthlyVisitorCounts[0].count : 0}</h1>
@@ -63,16 +63,24 @@ export default function AdDashboard() {
           </div>
         </div>
         <div class="col-3">
-          <div class="card bg-light mb-3" style={{ maxWidth: "18rem" }}>
+          <div class="card bg-light mb-3">
             <div class="card-header text-white bg-info"><h5 class="card-title">Registrations</h5></div>
             <div class="card-body text-center">
-              <h1>{dashboardCount?.registrationCount}</h1>
+              <h1>{dashboardCount?.registrationCount??0}</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card bg-light mb-3">
+            <div class="card-header text-white bg-info"><h5 class="card-title">Charity</h5></div>
+            <div class="card-body text-center">
+              <h1>{dashboardCount?.charityCount??0}</h1>
             </div>
           </div>
         </div>
         {dashboardCount?.attractionCounts?.map(res => {
           return <div class="col-3">
-            <div class="card bg-light mb-3" style={{ maxWidth: "18rem" }}>
+            <div class="card bg-light mb-3">
               <div class="card-header text-white bg-success"> <h5 class="card-title">{res?.attractionType}</h5></div>
               <div class="card-body text-center">
                 <h1>{res?.count}</h1>
