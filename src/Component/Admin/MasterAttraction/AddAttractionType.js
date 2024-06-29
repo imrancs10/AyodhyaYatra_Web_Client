@@ -28,6 +28,7 @@ export default function AddAttractionType() {
         teName: "",
         taName: "",
         code: "",
+        description:'',
         id: 0
     };
     const [attractionTypeModel, setAttractionTypeModel] = useState(attractionTypeTemplate);
@@ -135,13 +136,26 @@ export default function AddAttractionType() {
                                         <Inputbox  labelText="Hindi Name" isRequired={true} name="hiName" value={attractionTypeModel.hiName} placeholder="Please enter name in hindi" onChangeHandler={changeHandler} className="form-control-sm" />
                                     </div>
                                     <div className='col-12'>
-                                        <Inputbox  labelText="Tamil Name" isRequired={true} name="taName" value={attractionTypeModel.teName} placeholder="Please enter name in tamil " onChangeHandler={changeHandler} className="form-control-sm" />
+                                        <Inputbox  labelText="Tamil Name" isRequired={true} name="taName" value={attractionTypeModel.taName} placeholder="Please enter name in tamil " onChangeHandler={changeHandler} className="form-control-sm" />
                                     </div>
                                     <div className='col-12'>
-                                        <Inputbox  labelText="Telugu Name" isRequired={true} name="teName" value={attractionTypeModel.taName} placeholder="Please enter name tegulu" onChangeHandler={changeHandler} className="form-control-sm" />
+                                        <Inputbox  labelText="Telugu Name" isRequired={true} name="teName" value={attractionTypeModel.teName} placeholder="Please enter name tegulu" onChangeHandler={changeHandler} className="form-control-sm" />
+                                    </div>
+                                    <div className='col-12'>
+                                        <Inputbox  labelText="Description" isRequired={true} name="description" value={attractionTypeModel.description} placeholder="Please enter description" onChangeHandler={changeHandler} className="form-control-sm" />
                                     </div>
                                     <div className='col-12'>
                                         <Inputbox errorMessage={error?.code} labelText="Code" isRequired={true} name="code" value={attractionTypeModel.code} placeholder="Please enter code" onChangeHandler={changeHandler} className="form-control-sm" />
+                                    </div>
+                                    <div className='col-12'>
+                                    {attractionTypeModel.id > 0 && <>
+                                            <div>
+                                                <FormHeader heaterText='Image Upload'></FormHeader>
+                                            </div>
+                                            <div className='col-sm-12 col-md-6 offset-md-3 text-start'>
+                                                <FileUpload disable={isSaving} moduleName={fileUploadModuleName.MasterAttractionType} moduleId={attractionTypeModel.id} fileType='image'></FileUpload>
+                                            </div>
+                                        </>}
                                     </div>
                                 </div>
                             </div>

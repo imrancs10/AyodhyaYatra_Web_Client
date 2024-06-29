@@ -27,7 +27,8 @@ const fileUploadModuleName = {
     PhotoGallery: 28,
     AudioGallery: 29,
     VideoGallery: 30,
-    ThreeSixtyDegreeGallery: 31
+    ThreeSixtyDegreeGallery: 31,
+    MasterAttractionType: 32
 }
 
 export { fileUploadModuleName }

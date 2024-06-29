@@ -5,7 +5,7 @@ const renderImage = (row, header) => {
   if (images === undefined)
     images = [];
   debugger
-  return <img className="grid-image" src={process.env.REACT_APP_API_URL + images?.thumbPath} alt={row?.enName} title={row?.enName} onError={(e) => { e.target.src = "/assets/img/icons/default-image.jpg" }} />
+  return <img className="grid-image" src={process.env.REACT_APP_API_URL + images?.thumbPath} alt={row?.enName} title={`Total ${row?.images?.length} Image(s)`} onError={(e) => { e.target.src = "/assets/img/icons/default-image.jpg" }} />
 }
 
 const renderFiles = (row, header) => {
@@ -38,7 +38,12 @@ const headerFormat = {
   ],
   attractionTypeDetails: [
     { name: "Name", prop: "name" },
-    { name: "Code", prop: "code" }
+    { name: "Code", prop: "code" },
+    { name: 'Hindi', prop: 'hiName' },
+    { name: 'Tamil', prop: 'taName' }, 
+    { name: 'Telgu', prop: 'teName' },
+    { name: 'Description', prop: 'description' },
+    { name: "Images", prop: "images", customColumn: renderImage }
   ],
   visitorDetails: [
     { name: "Name", prop: "name" },
