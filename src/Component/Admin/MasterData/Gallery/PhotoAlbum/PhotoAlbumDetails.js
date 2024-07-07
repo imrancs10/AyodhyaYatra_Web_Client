@@ -80,6 +80,7 @@ export default function PhotoAlbumDetails() {
   return (
     <>
       <Breadcrumb option={breadcrumbOption}></Breadcrumb>
+      <hr/>
       <TableView option={tableOption} />
     </>
   )

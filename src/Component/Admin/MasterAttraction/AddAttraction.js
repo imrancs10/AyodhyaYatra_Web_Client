@@ -207,10 +207,10 @@ export default function AddAttraction() {
         link: "/admin/attraction/details"
       },
       {
-        text: "Add Attraction",
+        text: "Attraction List",
         icon: 'fa-solid fa-gopuram',
         handler: () => { },
-        link: "/admin/attraction"
+        link: "/admin/attraction/details"
       }
     ]
   }

@@ -122,6 +122,12 @@ export default function AddCharity() {
           }
         ],
         buttons: [
+            {
+                text: "Back",
+                icon: 'fa-solid fa-arrow-left',
+                handler: () => { },
+                link: "/admin/charity/details"
+              },
           {
             text: "Charity List",
             icon: 'fa-solid fa-gopuram',

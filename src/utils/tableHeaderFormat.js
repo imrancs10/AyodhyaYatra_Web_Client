@@ -1,5 +1,4 @@
 const renderImage = (row, header) => {
-  debugger;
   let images = row?.images ?? [];
   images = images.find(x => x.fileType?.toLowerCase() === "image");
   if (images === undefined)
@@ -82,8 +81,20 @@ const headerFormat = {
   YatraDetails: [
     { name: "Name (Eng)", prop: "enName" },
     { name: "Name (हिंदी)", prop: "hiName" },
-    { name: "Description (Eng)", prop: "enDescription" },
-    { name: "Description (हिंदी)", prop: "hiDescription" },
+    { name: "Name (Tamin)", prop: "taName" },
+    { name: "Name (Telgu)", prop: "teName" },
+    { name: "Description (Eng)", prop: "enDescription",customColumn:(data)=>{
+      return data?.enDescription?.length>50?data?.enDescription.substr(0,50)+"...":data?.enDescription;
+    } },
+    { name: "Description (हिंदी)", prop: "hiDescription",customColumn:(data)=>{
+      return data?.hiDescription?.length>50?data?.hiDescription.substr(0,50)+"...":data?.hiDescription;
+    } },
+    { name: "Description (Tamil)", prop: "taDescription",customColumn:(data)=>{
+      return data?.taDescription?.length>50?data?.taDescription.substr(0,50)+"...":data?.taDescription;
+    } },
+    { name: "Description (Telgu)", prop: "teDescription",customColumn:(data)=>{
+      return data?.teDescription?.length>50?data?.teDescription.substr(0,50)+"...":data?.teDescription;
+    } },
     { name: "Images", prop: "Images", customColumn: renderImage },
   ],
   PadavDetails: [

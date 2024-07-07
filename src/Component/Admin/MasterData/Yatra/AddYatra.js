@@ -115,12 +115,17 @@ export default function AddYatra() {
         icon: "fa-solid fa-gopuram"
       }
     ],
-    buttons: [
+    buttons: [ {
+      text: "Back",
+      icon: 'fa-solid fa-arrow-left',
+      handler: () => { },
+      link: "/admin/master/yatra/detail"
+    },
       {
         text: "Yatra List",
         icon: 'fa-solid fa-gopuram',
         handler: () => { },
-        link: "/admin/yatra"
+        link: "/admin/master/yatra/detail"
       }
     ]
   }

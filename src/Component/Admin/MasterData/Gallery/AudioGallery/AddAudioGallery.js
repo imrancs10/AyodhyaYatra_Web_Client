@@ -16,6 +16,7 @@ import { validationMessage } from '../../../../../constants/validationMessage'
 import { fileUploadModuleName } from '../../../../../constants/enums';
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { common } from '../../../../../utils/common'
+import Breadcrumb from '../../../Common/Breadcrumb'
 
 export default function AddAudioGallery() {
   let navigate = useNavigate();
@@ -102,9 +103,34 @@ export default function AddAudioGallery() {
   const resetAudioGalleryHandler = () => {
     navigate('/admin/master/photoalbum/add')
     setAudioGalleryModel({ ...audioGalleryModelTemplate });
+  } 
+  const breadcrumbOption = {
+    title: 'Add Audio Gallery',
+    items: [
+      {
+        isActive: false,
+        title: "Add Audio Gallery",
+        icon: "fa-solid fa-gopuram"
+      }
+    ],
+    buttons: [{
+      text: "Back",
+      icon: 'fa-solid fa-arrow-left',
+      handler: () => { },
+      link: '/admin/master/audiogallery/detail'
+    },
+    {
+      text: "Audio Album List",
+      icon: 'fa-solid fa-gopuram',
+      handler: () => { },
+      link: '/admin/master/audiogallery/detail'
+    }
+    ]
   }
   return (
     <>
+     <Breadcrumb option={breadcrumbOption}></Breadcrumb>
+     <hr/>
       <div className='card'>
         <div className='card-header bg-info text-start fs-9'>Add Audio Gallery</div>
         <div className='card-body'>

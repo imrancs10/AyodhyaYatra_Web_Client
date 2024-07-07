@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import Label from '../../../Common/Label'
-import Dropdown from '../../../Common/Dropdown'
-import ErrorLabel from '../../../Common/ErrorLabel'
 import Inputbox from '../../../Common/Inputbox'
 import FormHeader from '../../../Common/FormHeader'
 import FileUpload from '../../../Common/FileUpload'
 import Divider from '../../../Common/Divider'
 import ButtonBox from '../../../Common/ButtonBox'
-import DatePicker from '../../../Common/DatePicker'
 import { Api } from '../../../../../apis/Api'
 import { apiUrls } from '../../../../../apis/ApiUrls'
 import { toast } from 'react-toastify'
@@ -15,7 +11,8 @@ import { toastMessage } from '../../../../../constants/ConstantValues'
 import { validationMessage } from '../../../../../constants/validationMessage'
 import { fileUploadModuleName } from '../../../../../constants/enums';
 import { useSearchParams, useNavigate } from 'react-router-dom'
-import { common } from '../../../../../utils/common'
+import Breadcrumb from '../../../Common/Breadcrumb'
+
 
 export default function AddThreeSixtyDegreeGallery() {
   let navigate = useNavigate();
@@ -94,28 +91,43 @@ export default function AddThreeSixtyDegreeGallery() {
   const validateThreeSixtyDegreeGallery = () => {
     var { enName, id } = threeSixtyDegreeGalleryModel;
     var err = {};
-    // if (!yatraId || yatraId === 0) err.yatraId = validationMessage.reqYatraName;
-    // if (yatraId > 0) {
-    //   if (!threeSixtyDegreeGalleryId || threeSixtyDegreeGalleryId === 0) err.threeSixtyDegreeGalleryId = validationMessage.reqPadavName;
-    //   if (!sequenceNo || sequenceNo === "") err.sequenceNo = validationMessage.reqSequenceNumber;
-    // }
-    // if (id === 0) {
-    //   err.id = validationMessage.reqTempleSelect;
-    // }
     if (id === -1 || id > 0) {
       if (!enName || enName.length < 6) err.enName = validationMessage.reqNewsUpdateEn;
-      // if (!enDescription || enDescription.length < 6) err.enDescription = validationMessage.reqTempleDescEn;
-      // if (!latitude || latitude.length < 6) err.latitude = validationMessage.reqTempleLatitude;
-      // if (!longitude || longitude.length < 6) err.longitude = validationMessage.reqTempleLongitude;
-    }
     return err;
+    }
   }
   const resetThreeSixtyDegreeGalleryHandler = () => {
     navigate('/admin/master/360DegreeGallery/add')
     setthreeSixtyDegreeGalleryModel({ ...threeSixtyDegreeGalleryModelTemplate });
   }
+  
+  const breadcrumbOption = {
+    title: 'Add 360 DEGREE GALLERY',
+    items: [
+      {
+        isActive: false,
+        title: "Add 360 DEGREE GALLERY",
+        icon: "fa-solid fa-gopuram"
+      }
+    ],
+    buttons: [{
+      text: "Back",
+      icon: 'fa-solid fa-arrow-left',
+      handler: () => { },
+      link: '/admin/master/360DegreeGallery/detail'
+    },
+    {
+      text: "360 DEGREE GALLERY LIST",
+      icon: 'fa-solid fa-gopuram',
+      handler: () => { },
+      link: '/admin/master/360DegreeGallery/detail'
+    }
+    ]
+  }
   return (
     <>
+     <Breadcrumb option={breadcrumbOption}></Breadcrumb>
+     <hr/>
       <div className='card'>
         <div className='card-header bg-info text-start fs-9'>Add 360 Degree Gallery</div>
         <div className='card-body'>

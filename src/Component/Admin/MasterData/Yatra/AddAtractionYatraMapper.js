@@ -66,7 +66,7 @@ export default function AddAtractionYatraMapper() {
                     }
                     else
                         toast.warn(toastMessage.updateError);
-                })
+                });
         }
     }
 
@@ -103,10 +103,16 @@ export default function AddAtractionYatraMapper() {
         ],
         buttons: [
             {
+                text: "Back",
+                icon: 'fa-solid fa-arrow-left',
+                handler: () => { },
+                link: "/admin/yatra/attraction/mapper"
+            },
+            {
                 text: "Attraction & Yatra Mapper List",
                 icon: 'fa-solid fa-gopuram',
                 handler: () => { },
-                link: "admin/yatra/attraction/mapper"
+                link: "/admin/yatra/attraction/mapper"
             }
         ]
     }

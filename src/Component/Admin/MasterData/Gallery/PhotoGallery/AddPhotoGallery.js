@@ -16,6 +16,7 @@ import { validationMessage } from '../../../../../constants/validationMessage'
 import { fileUploadModuleName } from '../../../../../constants/enums';
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { common } from '../../../../../utils/common'
+import Breadcrumb from '../../../Common/Breadcrumb'
 
 export default function AddPhotoGallery() {
   let navigate = useNavigate();
@@ -102,19 +103,8 @@ export default function AddPhotoGallery() {
   const validatePhotoGallery = () => {
     var { enName, id } = photoGalleryModel;
     var err = {};
-    // if (!yatraId || yatraId === 0) err.yatraId = validationMessage.reqYatraName;
-    // if (yatraId > 0) {
-    //   if (!photoGalleryId || photoGalleryId === 0) err.photoGalleryId = validationMessage.reqPadavName;
-    //   if (!sequenceNo || sequenceNo === "") err.sequenceNo = validationMessage.reqSequenceNumber;
-    // }
-    // if (id === 0) {
-    //   err.id = validationMessage.reqTempleSelect;
-    // }
     if (id === -1 || id > 0) {
       if (!enName || enName.length < 6) err.enName = validationMessage.reqNewsUpdateEn;
-      // if (!enDescription || enDescription.length < 6) err.enDescription = validationMessage.reqTempleDescEn;
-      // if (!latitude || latitude.length < 6) err.latitude = validationMessage.reqTempleLatitude;
-      // if (!longitude || longitude.length < 6) err.longitude = validationMessage.reqTempleLongitude;
     }
     return err;
   }
@@ -122,8 +112,34 @@ export default function AddPhotoGallery() {
     navigate('/admin/master/photoalbum/add')
     setphotoGalleryModel({ ...photoGalleryModelTemplate });
   }
+
+  const breadcrumbOption = {
+    title: 'Add Photo Gallery',
+    items: [
+      {
+        isActive: false,
+        title: "Add Photo Gallery",
+        icon: "fa-solid fa-gopuram"
+      }
+    ],
+    buttons: [{
+      text: "Back",
+      icon: 'fa-solid fa-arrow-left',
+      handler: () => { },
+      link: '/admin/master/photogallery/detail'
+    },
+    {
+      text: "Photo Gallery List",
+      icon: 'fa-solid fa-gopuram',
+      handler: () => { },
+      link: '/admin/master/photogallery/detail'
+    }
+    ]
+  }
   return (
-    <>
+    <> 
+    <Breadcrumb option={breadcrumbOption}></Breadcrumb>
+     <hr/>
       <div className='card'>
         <div className='card-header bg-info text-start fs-9'>Add Photo Gallery</div>
         <div className='card-body'>

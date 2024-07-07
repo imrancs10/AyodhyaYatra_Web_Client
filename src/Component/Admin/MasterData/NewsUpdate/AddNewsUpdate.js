@@ -16,6 +16,7 @@ import { validationMessage } from '../../../../constants/validationMessage'
 import { fileUploadModuleName } from '../../../../constants/enums';
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { common } from '../../../../utils/common'
+import Breadcrumb from '../../Common/Breadcrumb'
 
 export default function AddNewsUpdate() {
   let navigate = useNavigate();
@@ -41,9 +42,7 @@ export default function AddNewsUpdate() {
   const [newsUpdateModel, setnewsUpdateModel] = useState(newsUpdateModelTemplate);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState();
-  // const [padavList, setPadavList] = useState([]);
   const [newsUpdateTypeList, setNewsUpdateTypeList] = useState([]);
-  // const [templeList, setTempleList] = useState([]);
 
   const changeHandler = (e) => {
     var { name, type, value } = e.target;
@@ -104,50 +103,18 @@ export default function AddNewsUpdate() {
     }
   }, [editnewsUpdateId]);
 
-  // useEffect(() => {
-  //   var apiList = [];
-  //   apiList.push();
-  //   apiList.push(Api.Get(apiUrls.masterDataController.getYatras));
-  //   apiList.push(Api.Get(apiUrls.templeController.getTemples));
-  //   Api.MultiCall(apiList)
-  //     .then(res => {
-  //       setNewsUpdateTypeList(res[0].data);
-  //       setTempleList(res[1].data.data);
-  //     });
-  // }, []);
-
   useEffect(() => {
     Api.Get(apiUrls.masterDataController.getYatras)
       .then(res => {
         setNewsUpdateTypeList(res.data);
       })
-  }, [])
-
-  // useEffect(() => {
-  //   Api.Get(apiUrls.masterDataController.getPadavByYatraId+`/${newsUpdateModel.yatraId}`)
-  //   .then(res=>{
-  //     setPadavList(res.data);
-  //   })
-  // }, [newsUpdateModel.yatraId])
-
-
+  }, []);
 
   const validateNewsUpdate = () => {
     var { enTitle, id } = newsUpdateModel;
     var err = {};
-    // if (!yatraId || yatraId === 0) err.yatraId = validationMessage.reqYatraName;
-    // if (yatraId > 0) {
-    //   if (!newsUpdateId || newsUpdateId === 0) err.newsUpdateId = validationMessage.reqPadavName;
-    //   if (!sequenceNo || sequenceNo === "") err.sequenceNo = validationMessage.reqSequenceNumber;
-    // }
-    // if (id === 0) {
-    //   err.id = validationMessage.reqTempleSelect;
-    // }
     if (id === -1 || id > 0) {
       if (!enTitle || enTitle.length < 6) err.enTitle = validationMessage.reqNewsUpdateEn;
-      // if (!enDescription || enDescription.length < 6) err.enDescription = validationMessage.reqTempleDescEn;
-      // if (!latitude || latitude.length < 6) err.latitude = validationMessage.reqTempleLatitude;
-      // if (!longitude || longitude.length < 6) err.longitude = validationMessage.reqTempleLongitude;
     }
     return err;
   }
@@ -155,8 +122,34 @@ export default function AddNewsUpdate() {
     navigate('/admin/master/newsupdate/add')
     setnewsUpdateModel({ ...newsUpdateModelTemplate });
   }
+
+  const breadcrumbOption = {
+    title: 'Add News',
+    items: [
+      {
+        isActive: false,
+        title: "News Details",
+        icon: "fa-solid fa-gopuram"
+      }
+    ],
+    buttons: [{
+      text: "Back",
+      icon: 'fa-solid fa-arrow-left',
+      handler: () => { },
+      link: '/admin/master/newsupdate/detail'
+    },
+    {
+      text: "News Details",
+      icon: 'fa-solid fa-gopuram',
+      handler: () => { },
+      link: '/admin/master/newsupdate/detail'
+    }
+    ]
+  }
   return (
     <>
+      <Breadcrumb option={breadcrumbOption} />
+      <hr />
       <div className='card'>
         <div className='card-header bg-info text-start fs-9'>Add News Update</div>
         <div className='card-body'>

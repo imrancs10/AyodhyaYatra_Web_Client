@@ -111,6 +111,12 @@ export default function AddAttractionType() {
         ],
         buttons: [
             {
+                text: "Back",
+                icon: 'fa-solid fa-arrow-left',
+                handler: () => { },
+                link: "/admin/attraction/type/details"
+              },
+            {
                 text: "Attraction Type List",
                 icon: 'fa-solid fa-gopuram',
                 handler: () => { },

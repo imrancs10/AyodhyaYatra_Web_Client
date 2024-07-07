@@ -146,6 +146,12 @@ export default function AddMasterData() {
     ],
     buttons: [
       {
+        text: "Back",
+        icon: 'fa-solid fa-arrow-left',
+        handler: () => { },
+        link: "/admin/master/data/detail"
+      },
+      {
         text: "Master Data Details",
         icon: 'fa-solid fa-gopuram',
         handler: () => { },

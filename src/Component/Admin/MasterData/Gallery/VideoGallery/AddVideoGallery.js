@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import Label from '../../../Common/Label'
-import Dropdown from '../../../Common/Dropdown'
-import ErrorLabel from '../../../Common/ErrorLabel'
 import Inputbox from '../../../Common/Inputbox'
 import FormHeader from '../../../Common/FormHeader'
 import FileUpload from '../../../Common/FileUpload'
 import Divider from '../../../Common/Divider'
 import ButtonBox from '../../../Common/ButtonBox'
-import DatePicker from '../../../Common/DatePicker'
 import { Api } from '../../../../../apis/Api'
 import { apiUrls } from '../../../../../apis/ApiUrls'
 import { toast } from 'react-toastify'
@@ -15,7 +11,7 @@ import { toastMessage } from '../../../../../constants/ConstantValues'
 import { validationMessage } from '../../../../../constants/validationMessage'
 import { fileUploadModuleName } from '../../../../../constants/enums';
 import { useSearchParams, useNavigate } from 'react-router-dom'
-import { common } from '../../../../../utils/common'
+import Breadcrumb from '../../../Common/Breadcrumb';
 
 export default function AddVideoGallery() {
   let navigate = useNavigate();
@@ -94,19 +90,8 @@ export default function AddVideoGallery() {
   const validateVideoGallery = () => {
     var { enName, id } = videoGalleryModel;
     var err = {};
-    // if (!yatraId || yatraId === 0) err.yatraId = validationMessage.reqYatraName;
-    // if (yatraId > 0) {
-    //   if (!videoGalleryId || videoGalleryId === 0) err.videoGalleryId = validationMessage.reqPadavName;
-    //   if (!sequenceNo || sequenceNo === "") err.sequenceNo = validationMessage.reqSequenceNumber;
-    // }
-    // if (id === 0) {
-    //   err.id = validationMessage.reqTempleSelect;
-    // }
     if (id === -1 || id > 0) {
       if (!enName || enName.length < 6) err.enName = validationMessage.reqNewsUpdateEn;
-      // if (!enDescription || enDescription.length < 6) err.enDescription = validationMessage.reqTempleDescEn;
-      // if (!latitude || latitude.length < 6) err.latitude = validationMessage.reqTempleLatitude;
-      // if (!longitude || longitude.length < 6) err.longitude = validationMessage.reqTempleLongitude;
     }
     return err;
   }
@@ -114,8 +99,33 @@ export default function AddVideoGallery() {
     navigate('/admin/master/videogallery/add')
     setvideoGalleryModel({ ...videoGalleryModelTemplate });
   }
+  const breadcrumbOption = {
+    title: 'Add Video Gallery',
+    items: [
+      {
+        isActive: false,
+        title: "Add Video Gallery",
+        icon: "fa-solid fa-gopuram"
+      }
+    ],
+    buttons: [{
+      text: "Back",
+      icon: 'fa-solid fa-arrow-left',
+      handler: () => { },
+      link: '/admin/master/videogallery/detail'
+    },
+    {
+      text: "Video Album List",
+      icon: 'fa-solid fa-gopuram',
+      handler: () => { },
+      link: '/admin/master/videogallery/detail'
+    }
+    ]
+  }
   return (
-    <>
+    <> 
+    <Breadcrumb option={breadcrumbOption}></Breadcrumb>
+     <hr/>
       <div className='card'>
         <div className='card-header bg-info text-start fs-9'>Add Video Gallery</div>
         <div className='card-body'>
